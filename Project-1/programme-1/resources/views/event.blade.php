@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Future Note: For the collapsible button's content to be hidden when the page is loaded make display:none in css -->
+@extends('layouts.app')
 
-        <title>Event Page</title>
-
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    </head>
-    <body class="antialiased">
-        <h1>Event Booking</h1>
-        <div>
-            <button onclick="showInternalForm()">Internal Form</button>
-            <button onclick="showExternalForm()">External Form</button>
-        </div>
-        <br>
-        <h2>Internal Form</h2>
+@section('content')
+    <h1>Event Booking</h1> 
+    <button type="button" class="collapsible">Internal Form</button>
+    <div class="content "id="internal_form">
         <form id="internal_form">
             <label for="internal_event_date">Date:</label>
             <input type="date" id="internal_event_date" name="internal_event_date">
@@ -52,9 +40,10 @@
                 <li><input type="checkbox">Projector</li>
             </ul>
         </form>
-        <br><br><br><br>
-        <h2>External Form</h2>
-        <form id="external_form">
+    </div>
+    <button type="button" class="collapsible">External From</button>
+    <div id="external_form">
+        <form>
             <label for="external_event_date">Date:</label>
             <input type="date" id="external_event_date" name="external_event_date">
             <br><br>
@@ -107,14 +96,35 @@
                 <option value="dp3">Dept 3</option>
             </select>
         </form>
-        <br>
-        <div class="buttons">
-            <div class="action_btn">
-                <button name="submit" type="submit" value="draft" onclick="Save()">Save as Draft</button>
-                <button name="submit" type="submit" value="submit" onclick="Submit()">Submit Event</button>
-                <button name="submit" type="submit" value="confirm" onclick="Confirm()">Confirm Event</button>
-                <button name="submit" type="submit" value="cancel" onclick="Cancel()">Cancel Event</button>
-            </div>
-        </div> 
-    </body>
-</html>
+    </div>
+    <br><br>
+    <div class="buttons">
+        <div class="action_btn">
+            <button name="submit" type="submit" value="draft" onclick="Save()">Save as Draft</button>
+            <button name="submit" type="submit" value="submit" onclick="Submit()">Submit Event</button>
+            <button name="submit" type="submit" value="confirm" onclick="Confirm()">Confirm Event</button>
+            <button name="submit" type="submit" value="cancel" onclick="Cancel()">Cancel Event</button>
+        </div>
+    </div> 
+
+@endsection
+
+@section('footer')
+    
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }    
+    </script>
+@endsection

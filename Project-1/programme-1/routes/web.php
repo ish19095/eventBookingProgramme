@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', '\App\Http\Controllers\MenuController@showMenu');
 
+Route::get('/menu', '\App\Http\Controllers\MenuController@showMenu');
+
 Route::get('/admin', '\App\Http\Controllers\MenuController@showAdmin');
 
 Route::get('/event', '\App\Http\Controllers\MenuController@showEvent');
