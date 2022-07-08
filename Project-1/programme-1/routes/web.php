@@ -41,3 +41,11 @@ Route::get('/calendar', '\App\Http\Controllers\MenuController@showCalendar');
 Route::get('/school', '\App\Http\Controllers\MenuController@showSchool');
 
 Route::get('/attendance', '\App\Http\Controllers\MenuController@showAttendance');
+
+Route::get('/index', function(){
+    return view('index');
+});
+
+Route::get('/test', function(){
+    return view('testing');
+});
