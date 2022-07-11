@@ -19,7 +19,11 @@
         <link href="assets/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style" />
         <link href="assets/css/app-creative-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
         
-
+        <script>
+            void function Submit(){
+                alert("Button Pressed!");
+            }
+        </script>
     </head>
 
     <body class="loading" data-layout="topnav" data-layout-config='{"layoutBoxed":false,"darkMode":false,"showRightSidebarOnStart": true}'>
@@ -51,11 +55,11 @@
                             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                                     <ul class="navbar-nav">
-                                        <li class="navbar-item"><a class="nav-link" href="calendar">View Calendar</a></li>
-                                        <li class="navbar-item"><a class="nav-link" href="event">Event Page</a></li> 
-                                        <li class="navbar-item"><a class="nav-link" href="school">School Booking Form</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="calendar">Calendar</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="event">Event Booking</a></li> 
+                                        <li class="navbar-item"><a class="nav-link" href="school">School Booking</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="statistics">Nature Reserve Visitor Statistics</a></li>
-                                        <li class="navbar-item"><a class="nav-link" href="admin">Admin Page</a></li>           
+                                        <li class="navbar-item"><a class="nav-link" href="admin">Admin</a></li>           
                                         <li class="navbar-item"><a class="nav-link" href="attendance">Attendence Sheet</a></li>
                                     </ul>
                                 </div>

@@ -29,4 +29,8 @@ class NavController extends Controller
     public function showAttendance(){
         return view('attendance');
     }
+
+    public function showStatistics(){
+        return view('statistics');
+    }
 }
