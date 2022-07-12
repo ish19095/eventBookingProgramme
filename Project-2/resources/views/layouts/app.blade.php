@@ -12,18 +12,13 @@
 
         <!-- third party css -->
         <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/vendor/fullcalendar.min.css" rel="stylesheet" type="text/css" />
         <!-- third party css end -->
 
         <!-- App css -->
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style" />
         <link href="assets/css/app-creative-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
-        
-        <script>
-            void function Submit(){
-                alert("Button Pressed!");
-            }
-        </script>
     </head>
 
     <body class="loading" data-layout="topnav" data-layout-config='{"layoutBoxed":false,"darkMode":false,"showRightSidebarOnStart": true}'>
@@ -51,7 +46,6 @@
                                 </span>
                             </a>
 
-                            
                             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                                     <ul class="navbar-nav">
@@ -63,10 +57,7 @@
                                         <li class="navbar-item"><a class="nav-link" href="attendance">Attendence Sheet</a></li>
                                     </ul>
                                 </div>
-                            </nav>
-                            
-                            
-
+                            </nav>                       
                         </div>
                     </div>
                     <!-- end Topbar -->
@@ -94,8 +85,6 @@
             <!-- ============================================================== -->
             <!-- End Page content -->
             <!-- ============================================================== -->
-
-
         </div>
         <!-- END wrapper -->
 
@@ -107,10 +96,13 @@
         <script src="assets/js/vendor/apexcharts.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="assets/js/vendor/jquery-ui.min.js"></script>
+        <script src="assets/js/vendor/fullcalendar.min.js"></script>
         <!-- third party js ends -->
 
         <!-- demo app -->
         <script src="assets/js/pages/demo.dashboard.js"></script>
+        <script src="assets/js/pages/demo.calendar.js"></script>
         <!-- end demo js-->
     </body>
 </html>

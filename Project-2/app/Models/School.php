@@ -11,5 +11,7 @@ class School extends Model
     protected $table = 'school';
     protected $primaryKey = 'school_id';
 
-    protected $fillable = ['all fields need to be inserted here'];
+    protected $fillable = ['school_id', 'date', 'site', 'time_from', 'time_to', 'staff_handler', 
+    'school_name', 'school_year', 'num_students', 'teacher_name', 'teacher_number', 'teacher_email', 
+    'donation', 'recipt_number', 'sales'];
 }

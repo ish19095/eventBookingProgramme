@@ -1,16 +1,15 @@
-<!-- Future Note: For the collapsible button's content to be hidden when the page is loaded make display:none in css -->
 @extends('layouts.app')
 
 @section('content')
 <ul class="nav nav-tabs nav-justified nav-bordered mb-3">
     <li class="nav-item">
-        <a href="#internal_content" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+        <a href="#internal_content" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
             <i class="mdi d-md-none d-block">Internal Form</i>
             <span class="d-none d-md-block">Internal Form</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#external_content" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+        <a href="#external_content" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
             <i class="mdi d-md-none d-block">External Form</i>
             <span class="d-none d-md-block">External Form</span>
         </a>
@@ -18,7 +17,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane" id="internal_content">
+    <div class="tab-pane show active" id="internal_content">
         <form id="internal_form">
             <div class="col-lg-6">
                 <div class="card widget-flat">
@@ -94,7 +93,7 @@
         </form>
     </div>
 
-    <div class="tab-pane show active" id="external_content">
+    <div class="tab-pane" id="external_content">
         <form>
             <div class="col-lg-6">
                 <div class="card widget-flat">
