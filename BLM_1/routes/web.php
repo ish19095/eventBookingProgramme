@@ -43,6 +43,8 @@ Route::get('/editlocation', '\App\Http\Controllers\PagesController@showEditLocat
 Route::get('/runreport', '\App\Http\Controllers\PagesController@showRunReport');
 Route::get('/test', '\App\Http\Controllers\PagesController@showTest');
 Route::get('/test2', '\App\Http\Controllers\PagesController@showTest2');
+Route::get('/locationtest', '\App\Http\Controllers\PagesController@retriveLocationsTest');
+Route::post('/locationtest', '\App\Http\Controllers\PagesController@storeLocationTest');
 
 
 

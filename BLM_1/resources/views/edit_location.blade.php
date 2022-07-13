@@ -141,7 +141,7 @@
     </div>
     <div class="tab-pane show active" id="remove">
         <select class="custom-select custom-select-lg mb-3">
-            <option selected>--Select Location--</option>
+            <option selected>--Select Locality--</option>
             <option value="1">Salina</option>
             <option value="2">Simar</option>
             <option value="3">Għadira</option>

@@ -3,9 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use app\LocationTest;
+use App\Models\LocationTest as ModelsLocationTest;
 
 class PagesController extends Controller
 {
+
+    public function retriveLocationsTest(){
+
+        $locations = ModelsLocationTest::all();
+        //$locations = ModelsLocationTest::orderBy('street', 'desc')->get();
+        //$locations = ModelsLocationTest::where('address_no', '21')->get();
+
+
+        return view('location_test', ['locations'=>$locations,]);
+
+    }
+
+    public function storeLocationTest(){
+
+        return redirect('/');
+
+    }
+
     public function showMenu(){
         return view('index');
     }
