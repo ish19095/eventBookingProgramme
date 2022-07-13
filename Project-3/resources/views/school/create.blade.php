@@ -28,8 +28,8 @@
                         <!-- Time -->
                         <label for="external_event_time" class="form-label">Event time:</label>
                         <ul style="list-style-type:none">
-                            <li>Time From:<input class="form-control" type="time" id="external_event_time_from" name="external_event_time" value="09:00" disabled></li>
-                            <li>Time To:<input class="form-control" type="time" id="external_event_time_to" name="external_event_time" value="12:30" disabled></li>
+                            <li>Time From:<input class="form-control" type="time" id="school_event_time_from" name="external_event_time" value="09:00" disabled></li>
+                            <li>Time To:<input class="form-control" type="time" id="school_event_time_to" name="external_event_time" value="12:30" disabled></li>
                         </ul>
                         <br>
                         <!-- Staff member handling school visit -->
@@ -84,17 +84,20 @@
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
+            {{csrf_field()}}
+            <br>
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        
         <br>
-        <div class="buttons">
+        <!-- <div class="buttons">
             <div class="action_btn">
                 <button name="submit" taype="submit" value="draft" onclick="Save()" class="btn btn-primary">Save as Draft</button>
                 <button name="submit" type="submit" value="confirm" onclick="Confirm()" class="btn btn-primary">Confirm Booking</button>
                 <button name="submit" type="submit" value="amend" onclick="Amend()" class="btn btn-primary">Amend & Complete Booking</button>
                 <button name="submit" type="submit" value="cancel" onclick="Cancel()" class="btn btn-primary">Cancel Event</button>
             </div>
-        </div> 
+        </div>  -->
 @endsection
 
 @section('script')
