@@ -21,7 +21,6 @@
 <div class="tab-content">
     <div class="tab-pane" id="add">
 
-
         <div class="tab-content">
             <div class="tab-pane show active" id="input-types-preview">
                 <div class="row">
@@ -29,33 +28,23 @@
                         <form action="/edit_location" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="simpleinput">Site Name</label>
-                                <input type="text" id="simpleinput" class="form-control" name="name">
+                                <label for="site">Site Name</label>
+                                <input type="text" id="site"  class="form-control" name="site">
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="simpleinput">Address No.</label>
-                                <input type="text" id="simpleinput" class="form-control" name="addressNo">
-                            </div>         
+                                <label for="address_no">Address No.</label>
+                                <input type="text" id="address_no" class="form-control" name="address_o">
+                            </div>   
                             
-                            {{-- <div class="card-body">
-                                <button type="submit" class="btn btn-primary">Submit1</button>
-                            </div> --}}
-
-                        </form>
-                    </div> <!-- end col -->
-
-                    <div class="col-lg-6">
-                        <form action="/edit_location" method="POST">
-
                             <div class="form-group mb-3">
-                                <label for="simpleinput">Street Name</label>
-                                <input type="text" id="simpleinput" class="form-control" name="street">
+                                <label for="street">Street Name</label>
+                                <input type="text" id="street" class="form-control" name="street">
                             </div>
 
                             <div class="form-group">
-                                <label for="example-select">Town/City</label>
-                                <select class="form-control" id="example-select" name="locality">
+                                <label for="locality">Town/City</label>
+                                <select class="form-control" id="locality" name="locality">
                                     <option>--Select Town/City--</option>                                                                        
                                     <option>Attard</option>
                                     <option>Balzan</option>
@@ -128,15 +117,28 @@
                                 </select>
                             </div>
                             
+                            {{-- <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Submit1</button>
+                            </div> --}}
+
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+
                         </form>
+                    </div> <!-- end col -->
+
+                    <div class="col-lg-6">
+                        
                     </div> <!-- end col -->
                 </div>
                 <!-- end row-->                      
             </div> <!-- end preview-->
         
-            <div class="card-body">
-                <button type="button" class="btn btn-primary">Submit3</button>
-            </div>
+            {{-- <div class="card-body">
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div> --}}
 
             <div class="card-body">
                 <button type="button" onclick="window.location='{{ url("/admin") }}'" class="btn btn-primary" >Return to Admin Page</button>            

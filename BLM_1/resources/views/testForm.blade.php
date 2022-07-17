@@ -38,15 +38,15 @@
                                 <input type="text" id="simpleinput" class="form-control" name="addressNo">
                             </div>         
                             
-                            {{-- <div class="card-body">
-                                <button type="submit" class="btn btn-primary">Submit1</button>
-                            </div> --}}
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" onclick="window.location='{{ url("/admin") }}'">Submit1</button>
+                            </div>
 
                         </form>
                     </div> <!-- end col -->
 
                     <div class="col-lg-6">
-                        <form action="/edit_location" method="POST">
+                        {{-- <form action="/edit_location" method="POST">
 
                             <div class="form-group mb-3">
                                 <label for="simpleinput">Street Name</label>
@@ -128,7 +128,7 @@
                                 </select>
                             </div>
                             
-                        </form>
+                        </form> --}}
                     </div> <!-- end col -->
                 </div>
                 <!-- end row-->                      
@@ -169,7 +169,6 @@
         </div>
 
 
-        {{-- @include('return_to_admin-page.blade.php') --}}
 
     </div>
 </div>

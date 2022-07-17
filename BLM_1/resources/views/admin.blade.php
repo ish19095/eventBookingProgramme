@@ -12,7 +12,7 @@
                 <div class="card text-white bg-primary">
                     <div class="card-body">
                         <blockquote class="card-bodyquote">                            
-                            <a href="editemployee" class="btn btn-primary mt-2 stretched-link">Edit Employee </a>
+                            <a href="employee" class="btn btn-primary mt-2 stretched-link">Edit Employee </a>
                         </blockquote>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
@@ -22,7 +22,7 @@
                 <div class="card text-white bg-primary">
                     <div class="card-body">
                         <blockquote class="card-bodyquote">                            
-                            <a href="editlocation" class="btn btn-primary mt-2 stretched-link">Edit Location </a>
+                            <a href="location" class="btn btn-primary mt-2 stretched-link">Edit Location </a>
                         </blockquote>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->

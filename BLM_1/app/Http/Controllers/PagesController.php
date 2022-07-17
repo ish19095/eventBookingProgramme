@@ -46,6 +46,37 @@ class PagesController extends Controller
         return view('edit_location');
     }
 
+    public function storeEditLocation(){
+
+        error_log(request('name'));
+
+        return redirect('/');
+
+    }
+
+    // Testing forms:
+
+
+        public function showTestForm(){
+            return view('testForm');
+        }
+    
+        public function storeTestForm(Request $request){
+    
+            return $request->name;
+
+            // Model::create($request->all());
+    
+            // return redirect('/');
+    
+        }
+
+
+
+
+
+
+
     public function showAddOrRemove(){
         return view('add_or_remove');
     }

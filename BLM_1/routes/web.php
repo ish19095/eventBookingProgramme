@@ -37,15 +37,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', '\App\Http\Controllers\PagesController@showMenu');
 Route::get('/calendar', '\App\Http\Controllers\PagesController@showCalendar');
 Route::get('/admin', '\App\Http\Controllers\PagesController@showAdmin');
+
+
 Route::get('/addorremove', '\App\Http\Controllers\PagesController@showAddOrRemove');
 Route::get('/editemployee', '\App\Http\Controllers\PagesController@showEditEmployee');
 Route::get('/editlocation', '\App\Http\Controllers\PagesController@showEditLocation');
+Route::post('/editlocation','\App\Http\Controllers\PagesController@storeEditLocation');
+
+Route::get('/testForm', '\App\Http\Controllers\PagesController@showTestForm');
+Route::post('/testForm','\App\Http\Controllers\PagesController@storeTestForm');
+
+
 Route::get('/runreport', '\App\Http\Controllers\PagesController@showRunReport');
 Route::get('/test', '\App\Http\Controllers\PagesController@showTest');
 Route::get('/test2', '\App\Http\Controllers\PagesController@showTest2');
+
+
 Route::get('/locationtest', '\App\Http\Controllers\PagesController@retriveLocationsTest');
 Route::post('/locationtest', '\App\Http\Controllers\PagesController@storeLocationTest');
 
+Route::resource('/employee', '\App\Http\Controllers\EmployeeController');
+//Route::post('/employee', '\App\Http\Controllers\EmployeeController@create');
 
 
 
