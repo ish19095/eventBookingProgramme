@@ -15,8 +15,9 @@ class CreateLeaveTable extends Migration
     {
         Schema::create('attendance', function (Blueprint $table) {
             $table->id('attend_id');
-            $table->date('leave_date_from');
-            $table->date('leave_date_to');
+            //$table->string('employee_id');
+            $table->string('leave_date_from');
+            $table->string('leave_date_to');
             $table->time('leave_time_from');
             $table->time('leave_time_to');
             $table->timestamps();

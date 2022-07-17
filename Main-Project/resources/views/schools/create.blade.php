@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>School Booking</h1>
 <form method="post" action="/schools">
     <div class="col-lg-6">
                 <div class="card widget-flat">

@@ -17,4 +17,16 @@ class Site extends Model
     public function schools(){
         return $this->hasMany('App\Models\School');
     }
+
+    // public function external_evevnts(){
+    //     return $this->hasMany('App\Models\EventExternal');
+    // }
+
+    // public function internal_events(){
+    //     return $this->hasMany('App\Models\EventInternal');
+    // }
+
+    // public function statistics(){
+    //     return $this->hasMany('App\Models\Statistic');
+    // }
 }

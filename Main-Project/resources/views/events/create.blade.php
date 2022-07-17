@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>Event Booking</h1>
 <ul class="nav nav-tabs nav-justified nav-bordered mb-3">
     <li class="nav-item">
         <a href="#internal_content" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">

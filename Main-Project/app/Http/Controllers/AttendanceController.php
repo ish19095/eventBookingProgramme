@@ -35,10 +35,10 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        // Attendance::create($request->all());
-        // return redirect('/home');
+        Attendance::create($request->all());
+        return redirect('/home');
 
-        return $request->all();
+        // return $request->all();
     }
 
     /**

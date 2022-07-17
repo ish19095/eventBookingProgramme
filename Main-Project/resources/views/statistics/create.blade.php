@@ -90,11 +90,11 @@
     <br>
     <button class="btn btn-primary" type="submit" name="submit">Save</button>
 </form>
-<br>
-<div class="buttons">
+<!-- <br> -->
+<!-- <div class="buttons">
     <div class="action_btn">
         <button name="submit" type="submit" value="draft" onclick="Save()" class="btn btn-primary">Save</button>
         <button name="submit" type="submit" value="cancel" onclick="Cancel()" class="btn btn-primary">Cancel</button>
     </div>
-</div> 
+</div>  -->
 @endsection

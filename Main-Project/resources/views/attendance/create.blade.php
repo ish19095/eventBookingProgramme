@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>Attendance</h1>
 <ul class="nav nav-tabs nav-justified nav-bordered mb-3">
     <li class="nav-item">
         <a href="#leave_content" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
@@ -24,19 +25,19 @@
                     <div class="card-body">
                         <!-- Date From -->
                         <label for="leave_date_from" class="form-label">Date From:</label>
-                        <input type="text" class="form-control date" id="leave_date_from" data-toggle="date-picker" data-single-date-picker="true">
+                        <input type="text" class="form-control date" id="leave_date_from" data-toggle="date-picker" data-single-date-picker="true" required>
                         <br>
                         <!-- Date To -->
                         <label for="leave_date_to" class="form-label">Date To:</label>
-                        <input type="text" class="form-control date" id="leave_date_to" data-toggle="date-picker" data-single-date-picker="true">
+                        <input type="text" class="form-control date" id="leave_date_to" data-toggle="date-picker" data-single-date-picker="true" required>
                         <br>
                         <!-- Time From -->
                         <label for="leave_time_from" class="form-label">Time From:</label>
-                        <input class="form-control" type="time" id="leave_time_from" name="leave_time_from">
+                        <input class="form-control" type="time" id="leave_time_from" name="leave_time_from" required>
                         <br>
                         <!-- Time To -->
                         <label for="leave_time_to" class="form-label">Time To:</label>
-                        <input class="form-control" type="time" id="leave_time_to" name="leave_time_to">
+                        <input class="form-control" type="time" id="leave_time_to" name="leave_time_to" required>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->

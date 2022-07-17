@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Testing</title>
+        <title>BLM Programme</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -48,7 +48,6 @@
                             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                                     <ul class="navbar-nav">
-                                        <li class="navbar-item"><a class="nav-link" href="calendar">Calendar</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="events">Event Booking</a></li> 
                                         <li class="navbar-item"><a class="nav-link" href="schools">School Booking</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="statistics">Nature Reserve Visitor Statistics</a></li>

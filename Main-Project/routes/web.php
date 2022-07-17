@@ -31,4 +31,3 @@ Route::resource('/admins', '\App\Http\Controllers\AdminController');
 
 Route::resource('/attendance', '\App\Http\Controllers\AttendanceController');
 
-Route::resource('/calendar', '\App\Http\Controllers\CalendarController');
