@@ -20,10 +20,10 @@
 <div class="tab-content">
     <div class="tab-pane show active" id="internal_content">
         <form id="internal_form" method="post" action="/events">
-            <div class="col-lg-6">
+        <div class="col-lg-6">
                 <div class="card widget-flat">
                     <div class="card-body">
-                        <h3>Internal Form</h3>
+                    <h3>Internal Form</h3>
                         <!-- Date -->
                         <label for="internal_event_date" class="form-label">Date:</label>
                         <input type="text" class="form-control date" id="internal_event_date" data-toggle="date-picker" data-cancel-class="btn-warning" required>
@@ -46,6 +46,22 @@
                             <option value="fr">Foresta 2000</option>
                             <option value="ot">Other</option>
                         </select>
+                        <br>
+                        <button class="btn btn-primary" type="button" id="check" name="check" onclick="test()">Check Availability </button>
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+
+            <div class="col-lg-6" id="form_body" style="display: none">
+                <div class="card widget-flat">
+                    <div class="card-body">
+                        <!-- Name -->
+                        <label for="internal_event_name" class="form-label">Name:</label>
+                        <input type="text" id="internal_event_name" name="internal_event_name" class="form-control" required>
+                        <br>
+                        <!-- Description -->
+                        <label for="internal_event_desc" class="form-label">Description:</label>
+                        <input type="text" id="internal_event_desc" name="internal_event_desc" class="form-control" required>
                         <br>
                         <!-- Type -->
                         <label for="internal_event_type" class="form-label">Event Type:</label>
@@ -284,4 +300,17 @@
     </div>
 </div> -->
 
+@endsection
+
+@section('script')
+<script>
+    const target = document.getElementById("form_body");
+    function test(){
+        if (target.style.display !== "none") {
+            target.style.display = "none";
+        } else {
+            target.style.display = "block";
+            }
+        }
+</script>
 @endsection
