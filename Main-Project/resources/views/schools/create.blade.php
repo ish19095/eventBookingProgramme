@@ -8,11 +8,11 @@
                     <div class="card-body">
                         <!-- Date -->
                         <label for="school_event_date" class="form-label">Date:</label>
-                        <input type="date" id="school_event_date" name="school_event_date" class="form-control">
+                        <input type="date" id="school_event_date" name="school_event_date" class="form-control" required>
                         <br>
                         <!-- Site -->
                         <label for="school_event_site" class="form-label">Event Site:</label>
-                        <select id="school_event_site" name="school_event_site" class="form-select">
+                        <select id="school_event_site" name="school_event_site" class="form-select" required>
                             <option value="" disabled selected>--Choose Site--</option>
                             <option value="sl">Salina</option>
                             <option value="sr">Simar</option>
@@ -30,7 +30,7 @@
                         <br>
                         <!-- Staff member handling school visit -->
                         <label for="school_event_staff_member" class="form-label">Staff member handling school visit:</label>
-                        <select id="school_event_staff_member" name="school_event_staff_member" class="form-select">
+                        <select id="school_event_staff_member" name="school_event_staff_member" class="form-select" required>
                             <option value="" disabled selected>--Choose Staff Member--</option>
                             <option value="m1">Thomas Shelby</option>
                             <option value="m2">Grace Burgess</option>
@@ -38,7 +38,7 @@
                         <br>
                         <!-- School Name -->
                         <label for="school_event_school_name" class="form-label">School Name:</label>
-                        <select id="school_event_school_name" name="school_event_school_name" class="form-select">
+                        <select id="school_event_school_name" name="school_event_school_name" class="form-select" required>
                             <option value="" disabled selected>--Choose School Name--</option>
                             <option value="s1">St Martins</option>
                             <option value="s2">De La Salle</option>
@@ -46,7 +46,7 @@
                         <br>
                         <!-- School Year -->
                         <label for="school_event_school_year" class="form-label">School Year:</label>
-                        <select id="school_event_school_year" name="school_event_school_year" class="form-select">
+                        <select id="school_event_school_year" name="school_event_school_year" class="form-select" required>
                             <option value="" disabled selected>--Choose School Year--</option>
                             <option value="y1">Year 1</option>
                             <option value="y2">Year 2</option>
@@ -56,27 +56,27 @@
                         <br>
                         <!-- Number of students -->            
                         <label for="school_event_num_students" class="form-label">Number Of Students:</label>
-                        <input data-toggle="touchspin" type="text" id="school_event_num_students" name="school_event_num_students" value="0">
+                        <input data-toggle="touchspin" type="text" id="school_event_num_students" name="school_event_num_students" value="0" required>
                         <br>
                         <!-- Teacher Name -->
                         <label for="school_event_teacher_name" class="form-label">Teacher Name:</label>
-                        <input type="text" id="school_event_teacher_name" name="school_event_teacher_name" class="form-control">
+                        <input type="text" id="school_event_teacher_name" name="school_event_teacher_name" class="form-control" required>
                         <br>
                         <!-- Teacher contact number -->
                         <label for="school_event_teacher_number" class="form-label">Teacher Contact Number:</label>
-                        <input type="text" id="school_event_teacher_number" name="school_event_teacher_number" class="form-control">
+                        <input type="text" id="school_event_teacher_number" name="school_event_teacher_number" class="form-control" required>
                         <br>
                         <!-- Teacher Email -->
                         <label for="school_event_teacher_email" class="form-label">Teacher Email:</label>
-                        <input type="text" id="school_event_teacher_email" name="school_event_teacher_email" class="form-control">
+                        <input type="text" id="school_event_teacher_email" name="school_event_teacher_email" class="form-control" required>
                         <br>
                         <!-- Donation -->
                         <label class="form-label" for="school_event_donation">Donation:</label>
-                        <input data-toggle="touchspin" type="text" data-bts-prefix="€" id="school_event_donation" name="school_event_donation">
+                        <input data-toggle="touchspin" type="text" data-bts-prefix="€" id="school_event_donation" name="school_event_donation" required>
                         <br>
                         <!-- Sales -->
                         <label class="form-check-label">Sales:</label>
-                        <input type="checkbox" id="school_event_sales" class="form-check-input"></input>
+                        <input type="checkbox" id="school_event_sales" class="form-check-input" required></input>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->

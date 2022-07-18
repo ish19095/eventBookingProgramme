@@ -24,13 +24,13 @@
                 <div class="card widget-flat">
                     <div class="card-body">
                         <label for="emp_name" class="form-label">Name:</label>
-                        <input type="text" id="emp_name" name="emp_name" class="form-control">
+                        <input type="text" id="emp_name" name="emp_name" class="form-control" required>
                         <br>
                         <label for="emp_surname" class="form-label">Surname:</label>
-                        <input type="text" id="emp_surname" name="emp_surname" class="form-control">
+                        <input type="text" id="emp_surname" name="emp_surname" class="form-control" required>
                         <br>
                         <label for="emp_email" class="form-label">Email:</label>
-                        <input type="text" id="emp_email" name="emp_email" class="form-control">
+                        <input type="text" id="emp_email" name="emp_email" class="form-control" required>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
@@ -47,7 +47,7 @@
                 <div class="card widget-flat">
                     <div class="card-body">
                         <label for="emp_email" class="form-label">Email:</label>
-                        <input type="text" id="emp_email" name="emp_email" class="form-control" placeholder="Employee's Email...">
+                        <input type="text" id="emp_email" name="emp_email" class="form-control" placeholder="Employee's Email..." required>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->

@@ -24,10 +24,10 @@
                 <div class="card widget-flat">
                     <div class="card-body">
                         <label for="loc_name" class="form-label">Name:</label>
-                        <input type="text" id="loc_name" name="loc_name" class="form-control">
+                        <input type="text" id="loc_name" name="loc_name" class="form-control" required>
                         <br>
                         <label for="loc_code" class="form-label">Code:</label>
-                        <input type="text" id="loc_code" name="loc_code" class="form-control">
+                        <input type="text" id="loc_code" name="loc_code" class="form-control" required>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
@@ -44,7 +44,7 @@
                 <div class="card widget-flat">
                     <div class="card-body">
                         <label for="loc_code" class="form-label">Code:</label>
-                        <input type="text" id="loc_code" name="loc_code" class="form-control" placeholder="Site Code...">
+                        <input type="text" id="loc_code" name="loc_code" class="form-control" placeholder="Site Code..." required>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->

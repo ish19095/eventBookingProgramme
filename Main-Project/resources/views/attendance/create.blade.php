@@ -38,6 +38,18 @@
                         <!-- Time To -->
                         <label for="leave_time_to" class="form-label">Time To:</label>
                         <input class="form-control" type="time" id="leave_time_to" name="leave_time_to" required>
+                        <br>
+                        <!-- Type of Leave -->
+                        <label for="leave_type" class="form-label">Event Site:</label>
+                        <select id="leave_type" name="leave_type" class="form-select" required>
+                            <option disabled selected>--Choose Type--</option>
+                            <option value="vl">Vacation Leave</option>
+                            <option value="to">Time Off</option>
+                            <option value="eh">Extra Hours</option>
+                            <option value="csl">Certified Sick Leave</option>
+                            <option value="ncsl">Unertified Sick Leave</option>
+                        </select>
+
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->

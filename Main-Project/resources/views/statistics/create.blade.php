@@ -8,11 +8,11 @@
             <div class="card-body">
                 <!-- Date -->
                 <label for="nrv_stat_date" class="form-label">Date:</label>
-                <input type="date" id="nrv_stat_date" name="nrv_stat_date" class="form-control">
+                <input type="date" id="nrv_stat_date" name="nrv_stat_date" class="form-control" required>
                 <br>
                 <!-- Site -->
                 <label for="nrv_stat_site" class="form-label">Event Site:</label>
-                <select id="nrv_stat_site" name="nrv_stat_site" class="form-select">
+                <select id="nrv_stat_site" name="nrv_stat_site" class="form-select" required>
                     <option value="" disabled selected>--Choose Site--</option>
                     <option value="sl">Salina</option>
                     <option value="sr">Simar</option>
@@ -23,7 +23,7 @@
                 <br>
                 <!-- Total visitors  -->
                 <label for="total_visitors" class="form-label">Total number of Visitors:</label>
-                <input data-toggle="touchspin" id="total_visitors" name="total_visitors" data-bts-max="9999" value="0" data-btn-vertical="true" type="text">
+                <input data-toggle="touchspin" id="total_visitors" name="total_visitors" data-bts-max="9999" value="0" data-btn-vertical="true" type="text" required>
             </div> <!-- end card-body-->
         </div> <!-- end card-->
     </div> <!-- end col-->
