@@ -28,8 +28,13 @@ Route::resource('/events', '\App\Http\Controllers\EventController');
 Route::resource('/statistics', '\App\Http\Controllers\StatisticController');
 
 Route::resource('/admins', '\App\Http\Controllers\AdminController');
-Route::resource('/employees', '\App\Http\Controllers\EmployeeController');
+
 Route::resource('/locations', '\App\Http\Controllers\LocationController');
 
 Route::resource('/attendance', '\App\Http\Controllers\AttendanceController');
 
+Route::group(['middleware'=>'web'], function(){
+
+    Route::resource('/employees', '\App\Http\Controllers\EmployeeController');
+
+});

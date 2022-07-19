@@ -27,7 +27,7 @@ class CreateSchoolTable extends Migration
             $table->string('school_event_teacher_number');
             $table->string('school_event_teacher_email')->unique();
             $table->decimal('school_event_donation', 5, 2);
-            $table->boolean('school_event_sales');
+            $table->boolean('school_event_sales')->nullable();
             $table->timestamps();
         });
     }

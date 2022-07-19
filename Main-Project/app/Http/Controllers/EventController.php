@@ -37,9 +37,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
         if($request->has('internal')){
             EventInternal::create($request->all());
-            return redirect('/home');
+            // return redirect('/home');
+            return dd($request->all());
+
+
+
         }
         if($request->has('external')){
             EventExternal::create($request->all());
