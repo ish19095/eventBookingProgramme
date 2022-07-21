@@ -46,11 +46,11 @@ class CreateSchoolRequest extends FormRequest
             'school_event_school_name.required' => 'School Name is required.',
             'school_event_school_year.required' => 'School Year is required.',
             'school_event_num_students.required' => 'Number of Students is required.',
+            'school_event_num_students.min' => 'Number of Students must be greater then 1.',
             'school_event_teacher_name.required' => 'Teacher\'s Name required.',
             'school_event_teacher_number.required' => 'Teacher\'s Number required.',
             'school_event_teacher_email.required' => 'Teacher\'s Email is required.',
             'school_event_donation.required' => 'Donation is required.'
-
         ];
     }
 }

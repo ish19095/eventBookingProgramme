@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateSchoolRequest;
 use App\Models\School;
 use Illuminate\Http\Request;
+use App\Models\Location as Location; 
+use App\Models\SchoolForm as SchoolForm;
 
 class SchoolController extends Controller
 {
@@ -15,7 +17,14 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return view('schools.create');
+        $locations = Location
+        ::where('loc_isActive', true)
+        ->get();
+
+        //dd($locations);
+
+        return view('schools.create')
+        ->with('locations',$locations);
     }
 
     /**
@@ -25,7 +34,20 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        return view('schools.create');
+        $locations = Location
+            ::where('loc_isActive', true)
+            ->get();
+
+        $future_events = SchoolForm
+            ::where('sch_startDate', '>=', date('Y-m-d H:i:s'))
+            ->select('sch_startDate')
+            ->get();
+
+            dd($future_events);
+            //dd($locations);
+
+            return view('schools.create')
+            ->with('locations',$locations);
     }
 
     /**
@@ -41,23 +63,38 @@ class SchoolController extends Controller
         try{
             $curDate = date('Y-m-d');
             if($request->school_event_date <= $curDate)
+
                 return "Date is incorrect";
 
             else{
+
+                $date = new DateTime($request->school_event_date);
+                $timeFrom = new DateTime('09:00:00');
+                $timeTo = new DateTime('12:30:00');
+
+                $startDate = new DateTime($date->format('Y-m-d') .' ' .$timeFrom->format('H:i:s'));
+                $startDate->format('Y-m-d H:i:s'); 
+                $endDate = new DateTime($date->format('Y-m-d') .' ' .$timeTo->format('H:i:s'));
+                $endDate->format('Y-m-d H:i:s');
+
+                $handler = array();
+                $handler = seperateName($request->school_event_staff_member);
+
                 $newbooking = new School;                
-                $newbooking->school_event_date = $request->school_event_date;
-                $newbooking->school_event_time_from = '09:00';
-                $newbooking->school_event_time_to = '12:30';
-                $newbooking->school_event_site = $request->school_event_site;
-                $newbooking->school_event_staff_member = $request->school_event_staff_member;
-                $newbooking->school_event_school_name = $request->school_event_school_name;
-                $newbooking->school_event_school_year = $request->school_event_school_year;
-                $newbooking->school_event_num_students = $request->school_event_num_students;
-                $newbooking->school_event_teacher_name = $request->school_event_teacher_name;
-                $newbooking->school_event_teacher_number = $request->school_event_teacher_number;
-                $newbooking->school_event_teacher_email = $request->school_event_teacher_email;
-                $newbooking->school_event_donation = $request->school_event_donation;
-                $newbooking->school_event_sales = $request->school_event_sales;
+                $newbooking->sch_startDate = $startDate;
+                $newbooking->sch_endDate = $endDate;
+
+                $newbooking->loc_id = $request->school_event_site;
+                $newbooking->sch_handler = DB::table('`user`')->where([['name', $handler->firstname], ['surname', $handler->lastname]])->value('usr_id');
+                $newbooking->schnm_id = DB::table('school_name')->where('schnm_name', $request->school_event_school_name)->value('schnm_id');
+                $newbooking->schgr_id = DB::table('school_grade')->where('schgr_name', $request->school_event_school_year)->value('schgr_id');
+
+                $newbooking->sch_noOfStudent = $request->school_event_num_students;
+                $newbooking->sch_teacherName = $request->school_event_teacher_name;
+                $newbooking->sch_teacherNo = $request->school_event_teacher_number;
+                $newbooking->sch_teacherEmail = $request->school_event_teacher_email;
+                $newbooking->sch_donation = $request->school_event_donation;
+                $newbooking->sch_sales = $request->school_event_sales;
 
                 $newbooking->save();
                 return redirect('/home');
@@ -65,8 +102,6 @@ class SchoolController extends Controller
         } catch(Exception $e){
             return "";
         }
-
-
     }
 
     /**
@@ -88,7 +123,16 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        $locations = Location
+        ::where('loc_isActive', true)
+        ->get();
+
+        //$school = School::where($sch_id = )
+
+        //dd($locations);
+
+        return view('schools.create')
+        ->with('locations',$locations);
     }
 
     /**
@@ -113,4 +157,22 @@ class SchoolController extends Controller
     {
         //
     }
+
+    // this function takes a whole name and seperated it into the first and last name.
+    // the values will be returned in an array always the firstname first and lastname second.
+    public function seperateName($name){
+        $parts = explode(" ", $name);
+        if(count($parts) > 1) {
+            $lastname = array_pop($parts);
+            $firstname = implode(" ", $parts);
+        }
+        else
+        {
+            $firstname = $name;
+            $lastname = " ";
+        }
+        $names = array($firstname, $lastname);
+        return $names;
+    }
+
 }

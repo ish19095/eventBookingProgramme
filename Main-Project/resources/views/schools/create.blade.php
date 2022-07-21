@@ -23,7 +23,7 @@
             <div class="card-body">
                 <!-- Date -->
                 <label for="school_event_date" class="form-label">Event Date:</label>
-                <input type="date" class="form-control" type="date" id="school_event_date" name="school_event_date">
+                <input id="school_event_date" name="school_event_date" placeholder="dd/mm/yyyy" data-date-assume-nearby-year="true" type="text" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-start-date="0d" data-date-orientation="bottom" class="form-control" data-provide="datepicker" data-date-autoclose="true">
                 <br>
                 <!-- Time -->
                 <label for="school_event_time" class="form-label">Event time:</label>
@@ -36,11 +36,9 @@
                 <label for="school_event_site" class="form-label">Event Site:</label>
                 <select id="school_event_site" name="school_event_site" class="form-select"  >
                     <option value="" disabled selected>--Choose Site--</option>
-                    <option value="sl">Salina</option>
-                    <option value="fr">Foresta 2000</option>
-                    <option value="sr">Simar</option>
-                    <option value="gh">Ghadira</option>
-                    <option value="ot">Other</option>
+                    @foreach($locations as $location)
+                        <option value="{{$location->loc_id}}">{{$location->loc_name}}</option>
+                    @endforeach
                 </select> 
                 <br>                        
                 <!-- Staff member handling school visit -->

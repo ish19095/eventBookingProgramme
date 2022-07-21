@@ -1,44 +1,63 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+/**
+ * Class User
+ * 
+ * @property int $usr_id
+ * @property string $usr_email
+ * @property bool|null $usr_isActive
+ * @property int $dep_id
+ * 
+ * @property Department $department
+ * @property Collection|Department[] $departments
+ * @property Collection|Event[] $events
+ * @property Collection|SchoolForm[] $school_forms
+ *
+ * @package App\Models
+ */
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+	protected $table = 'user';
+	protected $primaryKey = 'usr_id';
+	public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+	protected $casts = [
+		'usr_isActive' => 'bool',
+		'dep_id' => 'int'
+	];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+	protected $fillable = [
+		'usr_email',
+		'usr_isActive',
+		'dep_id'
+	];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+	public function department()
+	{
+		return $this->belongsTo(Department::class, 'dep_id');
+	}
+
+	public function departments()
+	{
+		return $this->hasMany(Department::class, 'dep_owner');
+	}
+
+	public function events()
+	{
+		return $this->hasMany(Event::class, 'evt_owner');
+	}
+
+	public function school_forms()
+	{
+		return $this->hasMany(SchoolForm::class, 'sch_handler');
+	}
 }

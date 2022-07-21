@@ -18,7 +18,6 @@ class CreateEmployeeTable extends Migration
             $table->string('emp_name');
             $table->string('emp_surname');
             $table->string('emp_email')->unique();
-            $table->timestamps();
         });
     }
 
