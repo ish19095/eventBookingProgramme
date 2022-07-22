@@ -18,6 +18,9 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style" />
         <link href="assets/css/app-creative-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
         @yield('head')
     </head>
 
@@ -72,24 +75,47 @@
                             </a>
                         </div>
                         <div class="container-fluid active">                           
-                            <nav class="navbar navbar-light navbar-expand-lg topnav-menu">                                
-                                        
+                            <nav class="navbar navbar-light navbar-expand-lg topnav-menu">                                        
                                 <div class="navbar-collapse active collapse show" id="topnav-menu-content" style="">
+                                    <a href="/home" class="topnav-logo">
+                                        <span class="topnav-logo-lg">
+                                            <img src="assets/images/Birdlife-Logo.png" alt="" height="52">
+                                        </span>                                                
+                                    </a>
+
                                     <ul class="navbar-nav">
+                                        <li>
+                                            <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topnav-menu-content" aria-expanded="false">
+                                                <div class="lines">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        {{-- <li>
+                                            <a href="/home" class="topnav-logo">
+                                                <span class="topnav-logo-lg">
+                                                    <img src="assets/images/Birdlife-Logo.png" alt="" height="52">
+                                                </span>                                                
+                                            </a>
+                                        </li> --}}
                                         <li class="nav-item dropdown">
+
+
                                             <a class="nav-link dropdown-toggle arrow-none" href="events" id="topnav-dashboards" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="uil-dashboard mr-1"></i>Events <div class="arrow-down"></div>
+                                                <i class=" mdi mdi-calendar-plus"></i>&nbsp;&nbsp;Events <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-dashboards">
-                                                <a href="events" class="dropdown-item">Internal</a>
-                                                <a href="events" class="dropdown-item" onclick="setExternalTabAsActive()">External</a>
+                                                <a href="{{route('events.index')}}#internal" class="dropdown-item">Internal</a>
+                                                <a href="{{route('events.index')}}#external" class="dropdown-item">External</a>
                                                 {{-- <a href="index.html" class="dropdown-item">Ecommerce</a>
                                                 <a href="dashboard-projects.html" class="dropdown-item">Projects</a> --}}
                                             </div>
                                         </li>
                                         <li class="nav-item dropdown active">
                                             <a class="nav-link dropdown-toggle arrow-none" href="schools" id="topnav-apps" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="uil-apps mr-1"></i>Schools <div class="arrow-down"></div>
+                                                <i class="mdi mdi-bus-school"></i>&nbsp;&nbsp;Schools <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-apps">
                                                 <a href="apps-calendar.html" class="dropdown-item active">test</a>                                                
@@ -97,7 +123,7 @@
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none" href="statistics" id="topnav-pages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="uil-copy-alt mr-1"></i>Statistics <div class="arrow-down"></div>
+                                                <i class=" mdi mdi-chart-bar"></i>&nbsp;&nbsp;Statistics <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-pages">
                                                                                                 
@@ -105,14 +131,26 @@
                                                 
                                             </div>
                                         </li>
+                                        
+
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="attendance" id="topnav-layouts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-clipboard-account-outline"></i>&nbsp;&nbsp;Attendance <div class="arrow-down"></div>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="topnav-layouts">
+                                                <a href="layouts-vertical.html" class="dropdown-item">Test</a>
+                                            </div>
+                                        </li>
+
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none" href="admins" id="topnav-components" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="uil-package mr-1"></i>Admin <div class="arrow-down"></div>
+                                                <i class=" mdi mdi-account-box"></i>&nbsp;&nbsp;Admin <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                                {{-- <a href="employees" class="dropdown-item">Edit Employee</a> --}}
+                                                {{-- <a href="employees" class="dropdown-item">Edit Employee</a> --}}   
+                                                
                                                 <div class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle arrow-none" href="employees" id="topnav-ui-kit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ route('employees.create') }}" id="topnav-ui-kit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Edit Employee <div class="arrow-down"></div>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="topnav-ui-kit">
@@ -143,14 +181,7 @@
                                             </div>
                                         </li>
 
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="attendance" id="topnav-layouts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="uil-window mr-1"></i>Attendance <div class="arrow-down"></div>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="topnav-layouts">
-                                                <a href="layouts-vertical.html" class="dropdown-item">Test</a>
-                                            </div>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </nav>
@@ -200,6 +231,8 @@
         <script src="assets/js/pages/demo.dashboard.js"></script>
         <!-- end demo js-->
 
+
+        
         
 
         @yield('script')

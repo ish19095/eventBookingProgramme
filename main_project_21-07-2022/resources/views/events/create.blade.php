@@ -20,10 +20,12 @@
 <div class="tab-content">
     <div class="tab-pane show active" id="internal_content">
         <form id="internal_form" method="post" action="/events">
-        <div class="col-lg-6">
+            <h3>Internal Form</h3>
+            <div class="row">
+            <div class="col-lg-6">
                 <div class="card widget-flat">
                     <div class="card-body">
-                    <h3>Internal Form</h3>
+                        
                         <!-- Date -->
                         <label for="internal_event_date" class="form-label">Event Date:</label>
                         <ul style="list-style-type:none">
@@ -31,6 +33,12 @@
                             <li>Date To:<input type="date" class="form-control" type="date" id="internal_event_date_to" name="internal_event_date_to"></li>
                         </ul>
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Time -->
                         <label for="internal_event_time" class="form-label">Event time:</label>
                         <ul style="list-style-type:none"   >
@@ -39,6 +47,12 @@
                             <li class="form-check-label" ><input type="checkbox" class="form-check-input" id="internal_event_all_day" name="internal_event_all_day">  All Day</li>
                         </ul>
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Site -->
                         <label for="internal_event_site" class="form-label">Event Site:</label>
                         <select id="internal_event_site" name="internal_event_site" class="form-select"   >
@@ -50,22 +64,39 @@
                             <option value="ot">Other</option>
                         </select>
                         <br>
-                        <button class="btn btn-primary" type="button" id="check" name="check" onclick="test()">Check Availability </button>
-                    </div> <!-- end card-body-->
+                    </div>
+                </div>
+            </div>
+                        
+                    {{-- </div> <!-- end card-body-->
                 </div> <!-- end card-->
-            </div> <!-- end col-->
+            </div> <!-- end col--> --}}
+            </div>
 
-            <div class="col-lg-6" id="form_body" style="display: none">
+            <div class="row" id="form_body" style="display: none">
+            <div class="col-lg-6" >
                 <div class="card widget-flat">
                     <div class="card-body">
                         <!-- Name -->
                         <label for="internal_event_name" class="form-label">Name:</label>
                         <input type="text" id="internal_event_name" name="internal_event_name" class="form-control"   >
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Description -->
                         <label for="internal_event_desc" class="form-label">Description:</label>
                         <input type="text" id="internal_event_desc" name="internal_event_desc" class="form-control"   >
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Type -->
                         <label for="internal_event_type" class="form-label">Event Type:</label>
                         <select id="internal_event_type" name="internal_event_type" class="form-select"   >
@@ -75,6 +106,12 @@
                             <option value="sse">Staff Social Event</option>
                         </select>
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- BLM Dept -->
                         <label for="internal_event_dept" class="form-label">Main BLM Department responsible for event:</label>
                         <select id="internal_event_dept" name="internal_event_dept" class="form-select"   >
@@ -84,6 +121,12 @@
                             <option value="conser">Conversation</option>
                         </select>
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Staff person handling event -->
                         <label for="internal_event_staff_member" class="form-label">Staff member handling event:</label>
                         <select id="internal_event_staff_member" name="internal_event_staff_member" class="form-select"   >
@@ -92,6 +135,12 @@
                             <option value="m2">Grace Burgess</option>
                         </select>
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Other person to be notified -->
                         <label for="internal_event_other_member" class="form-label">Other person to be notified:</label>
                         <select id="internal_event_other_member" name="internal_event_other_member" class="form-select"   >
@@ -100,6 +149,12 @@
                             <option value="m2">Freddie Thorne</option>
                         </select>
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <!-- Requirements -->           
                         <label class="form-label" id="internal_event_req" name="internal_event_req">Requirements:</label>
                         <ul style="list-style-type:none"   >
@@ -108,10 +163,14 @@
                             <li class="form-check-label"><input type="checkbox" class="form-check-input">  Tea/Coffee</li>
                             <li class="form-check-label"><input type="checkbox" class="form-check-input">  Projector</li>
                         </ul>
+                        
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
-
+            </div>
+        
+            <button class="btn btn-primary" type="button" id="check" name="check" onclick="test()">Check Availability </button>
+            <br>
             {{csrf_field()}}
             <br>
             <button class="btn btn-primary" type="submit" id="internal" name="internal">Save</button>
@@ -120,6 +179,7 @@
 
     <div class="tab-pane" id="external_content">
         <form id="external_form" method="post" action="/events">
+            {{-- <div class="row"> --}}
             <div class="col-lg-6">
                 <div class="card widget-flat">
                     <div class="card-body">
@@ -286,6 +346,8 @@
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
+            {{-- </div> --}}  
+            {{-- end of row --}}
 
             {{csrf_field()}}
             <br>
@@ -303,6 +365,8 @@
     </div>
 </div> -->
 
+
+
 @endsection
 
 @section('script')
@@ -318,6 +382,8 @@
 </script>
 
 <script>
+
+
 
     // function setActiveTab(){
 
@@ -339,21 +405,38 @@
     // }
 
 
-        function setExternalTabAsActive(){
 
-            //reset internal element
-            const internalTab = document.getElementById("internal_tab");
-            internalTab.classlist.replace("nav-link active", "nav-link");
+    //----------------------------------------------------------------------------
 
+        // function setExternalTabAsActive(){
 
-            //reset external element
-            const externalTab = document.getElementById("external_tab");
-            externalTab.classlist.replace("nav-link","nav-link active");            
+        //     //reset internal element
+        //     const internalTab = document.getElementById("internal_tab");
+        //     internalTab.classlist.replace("nav-link active", "nav-link");
 
-        }
+        //     $("#internal_tab").addClass("active");
 
 
+
+        //     //reset external element
+        //     const externalTab = document.getElementById("external_tab");
+        //     externalTab.classlist.replace("nav-link","nav-link active");            
+
+        // }
 </script>
 
+<script>    
+    $(document).ready(function () {
+        $("#external").click(function () {
+            //alert(window.location.hash.substr(1));
+            $("internal_content").removeClass("tab-pane show active");
+            $("internal_content").addClass("tab-pane");
+
+            $("external_content").removeClass("tab-pane");
+            $("external_content").addClass("tab-pane show active");
+
+        });
+    });
+</script>
 
 @endsection

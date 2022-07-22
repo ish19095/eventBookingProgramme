@@ -8,7 +8,7 @@
     <h1>Calendar</h1>
     <!-- Start Content-->
     <div class="container-fluid">
-        <div class="row">
+        <div class="tab-content">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -23,6 +23,9 @@
                             </div> <!-- end col-->
 
                             <div class="col-lg-9">
+                                {{-- <a href="/events" data-toggle="modal" data-target="#" class="btn btn-lg font-16 btn-primary btn-block  ">
+                                    <i class="mdi mdi-plus-circle-outline"></i> Create New Event
+                                </a> --}}
                                 <div id="calendar"></div>
                             </div> <!-- end col -->
 

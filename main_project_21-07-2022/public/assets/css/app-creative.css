@@ -14418,6 +14418,7 @@ body[data-layout=detached][data-leftbar-compact-mode=condensed] .side-nav .side-
   transition: all 0.5s ease;
   margin-top: 26px;
   margin-left: 10px;
+  color: black;
 }
 .button-menu-mobile span {
   height: 2px;
@@ -15177,7 +15178,7 @@ body[data-layout-color=dark][data-layout-mode=boxed] .footer {
   margin: 27px 20px;
   padding: 0;
   background-color: transparent;
-  border: none;
+  border: black;
 }
 .topnav-navbar .navbar-toggle .lines {
   width: 25px;
@@ -15186,6 +15187,7 @@ body[data-layout-color=dark][data-layout-mode=boxed] .footer {
   height: 16px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  /* color: black; */
 }
 .topnav-navbar .navbar-toggle span {
   height: 2px;
