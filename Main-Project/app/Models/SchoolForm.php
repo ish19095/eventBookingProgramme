@@ -12,66 +12,72 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class SchoolForm
  * 
- * @property int $sch_id
- * @property Carbon $sch_startDate
- * @property Carbon $sch_endDate
+ * @property int $schfrm_id
+ * @property string $schfrm_code
+ * @property Carbon $schfrm_startDate
+ * @property Carbon $schfrm_endDate
  * @property int $loc_id
- * @property int $sch_handler
- * @property int $schnm_id
- * @property int $schgr_id
- * @property string $sch_noOfStudent
- * @property string $sch_teacherName
- * @property string $sch_teacherNo
- * @property string $sch_teacherEmail
- * @property float $sch_donation
- * @property bool $sch_sales
- * @property bool|null $sch_isActive
- * @property int $sch_order
+ * @property int $schfrm_handler
+ * @property int $sch_id
+ * @property int $schgrd_id
+ * @property string $schfrm_noOfStudent
+ * @property string $schfrm_teacherName
+ * @property string $schfrm_teacherNo
+ * @property string $schfrm_teacherEmail
+ * @property float|null $schfrm_donation
+ * @property bool|null $schfrm_sales
+ * @property int $evtstat_id
+ * @property bool|null $schfrm_isActive
+ * @property int $schfrm_order
  * 
  * @property Location $location
  * @property User $user
- * @property SchoolName $school_name
+ * @property School $school
  * @property SchoolGrade $school_grade
+ * @property EventStatus $event_status
  *
  * @package App\Models
  */
 class SchoolForm extends Model
 {
 	protected $table = 'school_form';
-	protected $primaryKey = 'sch_id';
+	protected $primaryKey = 'schfrm_id';
 	public $timestamps = false;
 
 	protected $casts = [
 		'loc_id' => 'int',
-		'sch_handler' => 'int',
-		'schnm_id' => 'int',
-		'schgr_id' => 'int',
-		'sch_donation' => 'float',
-		'sch_sales' => 'bool',
-		'sch_isActive' => 'bool',
-		'sch_order' => 'int'
+		'schfrm_handler' => 'int',
+		'sch_id' => 'int',
+		'schgrd_id' => 'int',
+		'schfrm_donation' => 'float',
+		'schfrm_sales' => 'bool',
+		'evtstat_id' => 'int',
+		'schfrm_isActive' => 'bool',
+		'schfrm_order' => 'int'
 	];
 
 	protected $dates = [
-		'sch_startDate',
-		'sch_endDate'
+		'schfrm_startDate',
+		'schfrm_endDate'
 	];
 
 	protected $fillable = [
-		'sch_startDate',
-		'sch_endDate',
+		'schfrm_code',
+		'schfrm_startDate',
+		'schfrm_endDate',
 		'loc_id',
-		'sch_handler',
-		'schnm_id',
-		'schgr_id',
-		'sch_noOfStudent',
-		'sch_teacherName',
-		'sch_teacherNo',
-		'sch_teacherEmail',
-		'sch_donation',
-		'sch_sales',
-		'sch_isActive',
-		'sch_order'
+		'schfrm_handler',
+		'sch_id',
+		'schgrd_id',
+		'schfrm_noOfStudent',
+		'schfrm_teacherName',
+		'schfrm_teacherNo',
+		'schfrm_teacherEmail',
+		'schfrm_donation',
+		'schfrm_sales',
+		'evtstat_id',
+		'schfrm_isActive',
+		'schfrm_order'
 	];
 
 	public function location()
@@ -81,16 +87,21 @@ class SchoolForm extends Model
 
 	public function user()
 	{
-		return $this->belongsTo(User::class, 'sch_handler');
+		return $this->belongsTo(User::class, 'schfrm_handler');
 	}
 
-	public function school_name()
+	public function school()
 	{
-		return $this->belongsTo(SchoolName::class, 'schnm_id');
+		return $this->belongsTo(School::class, 'sch_id');
 	}
 
 	public function school_grade()
 	{
-		return $this->belongsTo(SchoolGrade::class, 'schgr_id');
+		return $this->belongsTo(SchoolGrade::class, 'schgrd_id');
+	}
+
+	public function event_status()
+	{
+		return $this->belongsTo(EventStatus::class, 'evtstat_id');
 	}
 }

@@ -12,10 +12,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class SchoolGrade
  * 
- * @property int $schgr_id
- * @property string $schgr_name
- * @property bool|null $schgr_isActive
- * @property int $schgr_order
+ * @property int $schgrd_id
+ * @property string $schgrd_name
+ * @property bool|null $schgrd_isActive
+ * @property int $schgrd_order
  * 
  * @property Collection|SchoolForm[] $school_forms
  *
@@ -24,22 +24,22 @@ use Illuminate\Database\Eloquent\Model;
 class SchoolGrade extends Model
 {
 	protected $table = 'school_grade';
-	protected $primaryKey = 'schgr_id';
+	protected $primaryKey = 'schgrd_id';
 	public $timestamps = false;
 
 	protected $casts = [
-		'schgr_isActive' => 'bool',
-		'schgr_order' => 'int'
+		'schgrd_isActive' => 'bool',
+		'schgrd_order' => 'int'
 	];
 
 	protected $fillable = [
-		'schgr_name',
-		'schgr_isActive',
-		'schgr_order'
+		'schgrd_name',
+		'schgrd_isActive',
+		'schgrd_order'
 	];
 
 	public function school_forms()
 	{
-		return $this->hasMany(SchoolForm::class, 'schgr_id');
+		return $this->hasMany(SchoolForm::class, 'schgrd_id');
 	}
 }

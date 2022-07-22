@@ -23,34 +23,33 @@ class CreateSchoolRequest extends FormRequest
      */
     public function rules()
     {
-        $curDate = date('Y-m-d');
         return [
-            'school_event_date' => 'required|date|after_or_equal:$curDate',
-            'school_event_site' => 'required',
-            'school_event_staff_member' => 'required',
-            'school_event_school_name' => 'required',
-            'school_event_school_year' => 'required',
-            'school_event_num_students' => 'required|numeric|min:1',
-            'school_event_teacher_name' => 'required',
-            'school_event_teacher_number' => 'required|numeric',
-            'school_event_teacher_email' => 'required|email:rfc,dns',
-            'school_event_donation' => 'required'
+            'school_event_date' => 'required|date|after:yesterday',
+            'loc_id' => 'required',
+            'schfrm_handler' => 'required',
+            'sch_id' => 'required',
+            'schgrd_id' => 'required',
+            'schfrm_noOfStudent' => 'required|numeric|min:1',
+            'schfrm_teacherName' => 'required',
+            'schfrm_teacherNo' => 'required|numeric',
+            'schfrm_teacherEmail' => 'required|email:rfc,dns'
         ];
     }
 
     public function messages(){
         return [
             'school_event_date.required' => 'Date is required.',
-            'school_event_site.required' => 'Site is required.',
-            'school_event_staff_member.required' => 'Staff Member is required.',
-            'school_event_school_name.required' => 'School Name is required.',
-            'school_event_school_year.required' => 'School Year is required.',
-            'school_event_num_students.required' => 'Number of Students is required.',
-            'school_event_num_students.min' => 'Number of Students must be greater then 1.',
-            'school_event_teacher_name.required' => 'Teacher\'s Name required.',
-            'school_event_teacher_number.required' => 'Teacher\'s Number required.',
-            'school_event_teacher_email.required' => 'Teacher\'s Email is required.',
-            'school_event_donation.required' => 'Donation is required.'
+            'school_event_date.after' => 'Date can not be before today.',
+            'school_event_date.unique' => 'Date already used.',
+            'loc_id.required' => 'Site is required.',
+            'schfrm_handler.required' => 'Staff Member is required.',
+            'sch_id.required' => 'School Name is required.',
+            'schgrd_id.required' => 'School Year is required.',
+            'schfrm_noOfStudent.required' => 'Number of Students is required.',
+            'schfrm_noOfStudent.min' => 'Number of Students must be greater then 1.',
+            'schfrm_teacherName.required' => 'Teacher\'s Name required.',
+            'schfrm_teacherNo.required' => 'Teacher\'s Number required.',
+            'schfrm_teacherEmail.required' => 'Teacher\'s Email is required.'
         ];
     }
 }

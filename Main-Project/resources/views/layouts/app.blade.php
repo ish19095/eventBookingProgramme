@@ -8,16 +8,17 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- third party css -->
-        <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/vendor/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
         <!-- third party css end -->
 
         <!-- App css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style" />
-        <link href="assets/css/app-creative-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+        
+        <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/app-creative.min.css')}}" rel="stylesheet" type="text/css" id="light-style" />
+        <link href="{{asset('assets/css/app-creative-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style" />
         @yield('head')
     </head>
 
@@ -38,18 +39,18 @@
                             <!-- LOGO -->
                             <a href="home" class="topnav-logo">
                                 <span class="topnav-logo-lg">
-                                    <img src="assets/images/blm-logo.png" alt="" height="60">
+                                    <img src="{{asset('assets/images/blm-logo.png')}}" alt="" height="60">
                                 </span>
                                 <span class="topnav-logo-sm">
-                                    <img src="assets/images/blm-logo.png" alt="" height="60">
+                                    <img src="{{asset('assets/images/blm-logo.png')}}" alt="" height="60">
                                 </span>
                             </a>
 
                             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                                     <ul class="navbar-nav">
-                                        <li class="navbar-item"><a class="nav-link" href="events">Event Booking</a></li> 
-                                        <li class="navbar-item"><a class="nav-link" href="schools">School Booking</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="events/create">Event Booking</a></li> 
+                                        <li class="navbar-item"><a class="nav-link" href="schools/create">School Booking</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="statistics">Nature Reserve Visitor Statistics</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="admins">Admin</a></li>           
                                         <li class="navbar-item"><a class="nav-link" href="attendance">Attendence Sheet</a></li>
@@ -86,17 +87,17 @@
         <!-- END wrapper -->
 
         <!-- bundle -->
-        <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
 
         <!-- third party js -->
-        <script src="assets/js/vendor/apexcharts.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="{{asset('assets/js/vendor/apexcharts.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/jquery-jvectormap-1.2.2.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/jquery-jvectormap-world-mill-en.js')}}"></script>
         <!-- third party js ends -->
 
         <!-- demo app -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
+        <script src="{{asset('assets/js/pages/demo.dashboard.js')}}"></script>
         <!-- end demo js-->
         @yield('script')
     </body>

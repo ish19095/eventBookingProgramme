@@ -58,6 +58,6 @@ class User extends Model
 
 	public function school_forms()
 	{
-		return $this->hasMany(SchoolForm::class, 'sch_handler');
+		return $this->hasMany(SchoolForm::class, 'schfrm_handler');
 	}
 }
