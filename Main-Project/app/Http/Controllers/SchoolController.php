@@ -134,6 +134,7 @@ class SchoolController extends Controller
             $newbooking->schfrm_donation = $request->schfrm_donation;
             $newbooking->schfrm_sales = $request->schfrm_sales;
             $newbooking->evtstat_id = DB::table('event_status')->where('evtstat_code', 'drft')->value('evtstat_id'); 
+            $newbooking->temp_date = $request->school_event_date;
 
             // dd([$newbooking, $request->all()]);
             $newbooking->save();
@@ -198,7 +199,7 @@ class SchoolController extends Controller
      * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateSchoolRequest $request, $id)
     {
         $schoolForm = SchoolForm::findOrFail($id);
         $schoolForm->update($request->all());

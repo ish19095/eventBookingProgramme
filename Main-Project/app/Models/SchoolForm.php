@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $evtstat_id
  * @property bool|null $schfrm_isActive
  * @property int $schfrm_order
+ * @property Carbon|null $temp_date
  * 
  * @property Location $location
  * @property User $user
@@ -58,7 +59,8 @@ class SchoolForm extends Model
 
 	protected $dates = [
 		'schfrm_startDate',
-		'schfrm_endDate'
+		'schfrm_endDate',
+		'temp_date'
 	];
 
 	protected $fillable = [
@@ -77,7 +79,8 @@ class SchoolForm extends Model
 		'schfrm_sales',
 		'evtstat_id',
 		'schfrm_isActive',
-		'schfrm_order'
+		'schfrm_order',
+		'temp_date'
 	];
 
 	public function location()

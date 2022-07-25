@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+// use App\Models\SchoolForm as SchoolForm;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateSchoolRequest extends FormRequest
 {
@@ -24,7 +26,8 @@ class CreateSchoolRequest extends FormRequest
     public function rules()
     {
         return [
-            'school_event_date' => 'required|date|after:yesterday',
+            // dd($this),
+            'school_event_date' => 'required|date|after:yesterday|unique:school_form,temp_date',
             'loc_id' => 'required',
             'schfrm_handler' => 'required',
             'sch_id' => 'required',

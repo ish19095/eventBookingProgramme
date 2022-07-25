@@ -21,7 +21,7 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::resource('/schools', '\App\Http\Controllers\SchoolController');
+
 
 Route::resource('/events', '\App\Http\Controllers\EventController');
 
@@ -33,8 +33,10 @@ Route::resource('/locations', '\App\Http\Controllers\LocationController');
 
 Route::resource('/attendance', '\App\Http\Controllers\AttendanceController');
 
+Route::resource('/employees', '\App\Http\Controllers\EmployeeController');
+
 Route::group(['middleware'=>'web'], function(){
 
-    Route::resource('/employees', '\App\Http\Controllers\EmployeeController');
+    Route::resource('/schools', '\App\Http\Controllers\SchoolController');
 
 });
