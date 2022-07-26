@@ -17,13 +17,18 @@
 </div> <!-- end col-->
 <br>
 @endif   
-<form method="post" action="/schools">
+<form autocomplete="off" method="post" action="/schools">
     <div class="col-lg-6">
         <div class="card widget-flat">
             <div class="card-body">
                 <!-- Date -->
                 <label for="school_event_date" class="form-label">Event Date:</label>
-                <input id="school_event_date" name="school_event_date" class="form-control" type="date">
+                <input id="school_event_date" name="school_event_date" class="form-control datepicker">
+
+                <!-- <label for="school_event_date">Date:</label>
+                <input type="date" class="form-control datepicker" id="school_event_date" name="school_event_date"> -->
+
+
                 <!-- <input id="school_event_date" name="school_event_date" placeholder="dd/mm/yyyy" data-date-assume-nearby-year="true" type="text" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-start-date="0d" data-date-orientation="bottom" class="form-control" data-provide="datepicker" data-date-autoclose="true"> -->
                 <br>
                 <!-- Time -->
@@ -100,4 +105,40 @@
     <br>
     <button class="btn btn-primary" type="submit" name="submit">Save</button>
 </form> 
+<ul id="days" style="display: none">
+    @foreach($future_events as $future_event)
+        <li id="{{$future_event->schfrm_id}}">{{$future_event->temp_date->format('Y-m-d')}}</li>
+    @endforeach
+</ul>
+
+@endsection
+
+@section('script')
+<script>
+    var datesForDisable = [];
+    const temp = document.getElementById('days');
+    const items = temp.getElementsByTagName('li');
+
+    for(let i = 0; i < items.length ; i++){
+        datesForDisable.push(items[i].innerHTML);
+    }
+
+    for(let i = 0; i < items.length ; i++){
+        console.log(datesForDisable[i]);
+    }
+
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true,
+        datesDisabled: datesForDisable
+    });
+ 
+</script>
+
+<style>
+    .datepicker{
+        color: blue;
+    }
+</style>
 @endsection

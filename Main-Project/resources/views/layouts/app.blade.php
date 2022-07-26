@@ -37,7 +37,7 @@
                         <div class="container-fluid">
 
                             <!-- LOGO -->
-                            <a href="home" class="topnav-logo">
+                            <a href="{{route('home')}}" class="topnav-logo">
                                 <span class="topnav-logo-lg">
                                     <img src="{{asset('assets/images/blm-logo.png')}}" alt="" height="60">
                                 </span>
@@ -49,11 +49,11 @@
                             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                                     <ul class="navbar-nav">
-                                        <li class="navbar-item"><a class="nav-link" href="events/create">Event Booking</a></li> 
-                                        <li class="navbar-item"><a class="nav-link" href="schools/create">School Booking</a></li>
-                                        <li class="navbar-item"><a class="nav-link" href="statistics">Nature Reserve Visitor Statistics</a></li>
-                                        <li class="navbar-item"><a class="nav-link" href="admins">Admin</a></li>           
-                                        <li class="navbar-item"><a class="nav-link" href="attendance">Attendence Sheet</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="{{route('events/create')}}">Event Booking</a></li> 
+                                        <li class="navbar-item"><a class="nav-link" href="schools">School Booking</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="{{route('statistics')}}">Nature Reserve Visitor Statistics</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="{{route('admins')}}">Admin</a></li>           
+                                        <li class="navbar-item"><a class="nav-link" href="{{route('attendance')}}">Attendence Sheet</a></li>
                                     </ul>
                                 </div>
                             </nav>                       
