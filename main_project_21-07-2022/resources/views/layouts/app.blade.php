@@ -8,7 +8,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/Birdlife-Logo.png">
 
         <!-- third party css -->
         <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
@@ -18,6 +18,19 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style" />
         <link href="assets/css/app-creative-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+
+        
+        {{-- referncing with blade --}}
+        {{-- <link href="{{ URL::asset('css/icons.css') }}" rel="stylesheet" type="text/css" /> --}}
+        {{-- <link href="{{ URL::asset('css/app-creative.css') }}" rel="stylesheet" type="text/css" /> --}}
+        {{-- <link href="{{ URL::asset('css/app-creative-dark.css') }}" rel="stylesheet" type="text/css" /> --}}
+        {{-- ================== --}}
+
+
+
+
+        {{-- <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="dark-style" /> --}}
+        {{-- <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="dark-style" /> --}}
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -35,36 +48,8 @@
             <div class="content-page">
                 <div class="content">
                     <!-- Topbar Start -->
-                    {{-- <div class="navbar-custom topnav-navbar topnav-navbar-dark">
-                        <div class="container-fluid">
-
-                            <!-- LOGO -->
-                            <a href="home" class="topnav-logo">
-                                <span class="topnav-logo-lg">
-                                    <img src="assets/images/blm-logo.png" alt="" height="60">
-                                </span>
-                                <span class="topnav-logo-sm">
-                                    <img src="assets/images/blm-logo.png" alt="" height="60">
-                                </span>
-                            </a>
-
-                            <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
-                                <div class="collapse navbar-collapse" id="topnav-menu-content">
-                                    <ul class="navbar-nav">
-                                        <li class="navbar-item"><a class="nav-link" href="events">Event Booking</a></li> 
-                                        <li class="navbar-item"><a class="nav-link" href="schools">School Booking</a></li>
-                                        <li class="navbar-item"><a class="nav-link" href="statistics">Nature Reserve Visitor Statistics</a></li>
-                                        <li class="navbar-item"><a class="nav-link" href="admins">Admin</a></li>           
-                                        <li class="navbar-item"><a class="nav-link" href="attendance">Attendence Sheet</a></li>
-                                    </ul>
-                                </div>
-                            </nav>                       
-                        </div>
-                    </div> --}}
-
                     
-                    <div class="topnav shadow-sm">
-                        
+                    <div class="topnav shadow-sm  bg-secondary-lighten">                        
                         <div class="container-fluid active">
                             <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topnav-menu-content" aria-expanded="false">
                                 <div class="lines">
@@ -74,25 +59,38 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="container-fluid active">                           
-                            <nav class="navbar navbar-light navbar-expand-lg topnav-menu">                                        
-                                <div class="navbar-collapse active collapse show" id="topnav-menu-content" style="">
-                                    <a href="/home" class="topnav-logo">
-                                        <span class="topnav-logo-lg">
-                                            <img src="assets/images/Birdlife-Logo.png" alt="" height="52">
-                                        </span>                                                
-                                    </a>
+                        <div class="container-fluid active">                            
+                            {{-- <button class="btn btn-primary ml-1 navbar-toggle" type="button"
+                                data-toggle="collapse" data-target="#topnav-menu-content"
+                                aria-expanded="false" aria-controls="topnav-menu-content"
+                                onclick="openAndCollapseNavbar()">                                    
+                                <div>                                        
+                                    | | |
+                                </div>
+                            </button> --}}
+                            <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
 
+                                <a href="/home" class="topnav-logo">
+                                    <span class="topnav-logo-lg">
+                                        <img src="assets/images/Birdlife-Logo.png" alt="" height="52">
+                                    </span>                                                
+                                </a>
+                               
+                                {{-- btn_left was added in app-creative.css --}}
+                                <button class="btn btn-primary ml-1 navbar-toggle btn_left" type="button"
+                                    data-toggle="collapse" data-target="#topnav-menu-content"
+                                    aria-expanded="false" aria-controls="topnav-menu-content"
+                                    onclick="openAndCollapseNavbar()">                                    
+                                    {{-- <div>                                        
+                                        | | |
+                                    </div> --}}
+                                    <img src="assets/images/hamburgerBlueMenu.png" alt="" height="25">
+                                    
+                                </button>                                
+                                
+                                <div class="navbar-collapse  collapse show" id="topnav-menu-content" style="display: none">
+                                    
                                     <ul class="navbar-nav">
-                                        <li>
-                                            <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topnav-menu-content" aria-expanded="false">
-                                                <div class="lines">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                </div>
-                                            </a>
-                                        </li>
                                         {{-- <li>
                                             <a href="/home" class="topnav-logo">
                                                 <span class="topnav-logo-lg">
@@ -100,29 +98,44 @@
                                                 </span>                                                
                                             </a>
                                         </li> --}}
+                                        {{-- <li>
+                                            <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topnav-menu-content" aria-expanded="false">
+                                                <div class="lines">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </a>
+                                        </li>                                         --}}
+                                        <li></li>
+
                                         <li class="nav-item dropdown">
 
-
-                                            <a class="nav-link dropdown-toggle arrow-none" href="events" id="topnav-dashboards" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="events" id="topnav-events" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class=" mdi mdi-calendar-plus"></i>&nbsp;&nbsp;Events <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-dashboards">
-                                                <a href="{{route('events.index')}}#internal" class="dropdown-item">Internal</a>
-                                                <a href="{{route('events.index')}}#external" class="dropdown-item">External</a>
+                                                {{-- <a href="{{route('events.index')}}#internal" class="dropdown-item">Internal</a>
+                                                <a href="{{route('events.index')}}#external" class="dropdown-item">External</a> --}}
                                                 {{-- <a href="index.html" class="dropdown-item">Ecommerce</a>
                                                 <a href="dashboard-projects.html" class="dropdown-item">Projects</a> --}}
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown active">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="schools" id="topnav-apps" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-bus-school"></i>&nbsp;&nbsp;Schools <div class="arrow-down"></div>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                                <a href="apps-calendar.html" class="dropdown-item active">test</a>                                                
+
+                                                <a  class="dropdown-item">Create</a>
+                                                <a class="dropdown-item">Edit</a>
+
                                             </div>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="statistics" id="topnav-pages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="schools" id="topnav-schools" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-bus-school"></i>&nbsp;&nbsp;Schools <div class="arrow-down"></div>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="topnav-apps">
+                                                <a href="apps-calendar.html" class="dropdown-item active">Create</a>
+                                                <a href="apps-calendar.html" class="dropdown-item active">Edit</a> 
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="statistics" id="topnav-statistics" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class=" mdi mdi-chart-bar"></i>&nbsp;&nbsp;Statistics <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-pages">
@@ -134,16 +147,16 @@
                                         
 
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="attendance" id="topnav-layouts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="attendance" id="topnav-attendance" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="mdi mdi-clipboard-account-outline"></i>&nbsp;&nbsp;Attendance <div class="arrow-down"></div>
                                             </a>
-                                            <div class="dropdown-menu" aria-labelledby="topnav-layouts">
+                                            <div class="dropdown-menu" aria-labelledby="topnav-test">
                                                 <a href="layouts-vertical.html" class="dropdown-item">Test</a>
                                             </div>
                                         </li>
 
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="admins" id="topnav-components" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="admins" id="topnav-admin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class=" mdi mdi-account-box"></i>&nbsp;&nbsp;Admin <div class="arrow-down"></div>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="topnav-components">
@@ -232,7 +245,16 @@
         <!-- end demo js-->
 
 
-        
+        <script>
+            const target = document.getElementById("topnav-menu-content");
+            function openAndCollapseNavbar(){
+                if (target.style.display === "block") {
+                    target.style.display = "none";
+                } else {
+                    target.style.display = "block";
+                }
+            }
+        </script>
         
 
         @yield('script')

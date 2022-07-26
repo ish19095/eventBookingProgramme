@@ -17,7 +17,7 @@
 </div> <!-- end col-->
 <br>
 @endif      
-<ul class="nav nav-tabs nav-justified nav-bordered mb-3">
+<ul class="nav nav-tabs nav-bordered mb-3">
     <li class="nav-item">
         <a href="#add_employee" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
             <i class="mdi d-md-none d-block">Add Employee</i>
@@ -32,23 +32,37 @@
     </li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content p-3 mb-2 bg-secondary-lighten">
     <div class="tab-pane show active" id="add_employee">
         <form id="add_employee" method="post" action="/employees">
+            <div class="row">
             <div class="col-lg-6">
                 <div class="card widget-flat">
                     <div class="card-body">
                         <label for="emp_name" class="form-label">Name:</label>
                         <input type="text" id="emp_name" name="emp_name" class="form-control" >
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <label for="emp_surname" class="form-label">Surname:</label>
                         <input type="text" id="emp_surname" name="emp_surname" class="form-control" >
                         <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card widget-flat">
+                    <div class="card-body">
                         <label for="emp_email" class="form-label">Email:</label>
                         <input type="text" id="emp_email" name="emp_email" class="form-control" >
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
+            </div>
 
             {{csrf_field()}}
             <br>

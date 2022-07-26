@@ -5527,6 +5527,15 @@ textarea.form-control-lg {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 1.5rem 1.5rem;
+  min-height: 200px;
+}
+
+.form-card-body{
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 1.5rem 1.5rem;
+  min-height: 100%;  
 }
 
 .card-title {
@@ -19365,7 +19374,7 @@ body[data-layout-color=dark] .timeline-show .time-show-name {
 }
 
 .datepicker table tr td.today.active, .datepicker table tr td.today.disabled.active, .datepicker table tr td.today.disabled:active, .datepicker table tr td.today.disabled:hover.active, .datepicker table tr td.today.disabled:hover:active, .datepicker table tr td.today:active, .datepicker table tr td.today:hover.active, .datepicker table tr td.today:hover:active {
-  background-color: #fbf069\9 ;
+  background-color: #fbf069 ;
 }
 
 .datepicker table tr td.today:hover:hover {
@@ -19398,7 +19407,7 @@ body[data-layout-color=dark] .timeline-show .time-show-name {
 }
 
 .datepicker table tr td.range.today.active, .datepicker table tr td.range.today.disabled.active, .datepicker table tr td.range.today.disabled:active, .datepicker table tr td.range.today.disabled:hover.active, .datepicker table tr td.range.today.disabled:hover:active, .datepicker table tr td.range.today:active, .datepicker table tr td.range.today:hover.active, .datepicker table tr td.range.today:hover:active {
-  background-color: #efe24b\9 ;
+  background-color: #efe24b ;
 }
 
 .datepicker table tr td.selected, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected:hover {
@@ -22810,4 +22819,8 @@ body[data-layout-color=dark] .gantt .bar-label, body[data-layout-color=dark] .ga
 }
 body[data-layout-color=dark] .gantt .today-highlight {
   fill: #464f5b;
+}
+
+.btn_left{
+  float: left;
 }

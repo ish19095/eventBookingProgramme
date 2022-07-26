@@ -7,7 +7,8 @@
 @section('content')
     <h1>Calendar</h1>
     <!-- Start Content-->
-    <div class="container-fluid">
+    <div class="tab-content p-3 mb-2 ms-0 bg-secondary-lighten">
+    {{-- <div class="container-fluid"> --}}
         <div class="tab-content">
             <div class="col-12">
                 <div class="card">
@@ -55,6 +56,7 @@
             </div>
             <!-- end col-12 -->
         </div> <!-- end row -->
+    {{-- </div> --}}
     </div>
     <!-- container -->
 

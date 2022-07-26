@@ -24,6 +24,7 @@ Route::get('/home', function () {
 Route::resource('/schools', '\App\Http\Controllers\SchoolController');
 
 Route::resource('/events', '\App\Http\Controllers\EventController');
+// Route::get('/events/create', '\App\Http\Controllers\EventController@create');
 
 Route::resource('/statistics', '\App\Http\Controllers\StatisticController');
 
