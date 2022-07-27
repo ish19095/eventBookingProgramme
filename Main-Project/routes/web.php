@@ -24,7 +24,7 @@ Route::get('/home', function () {
 
 
 Route::resource('/events', '\App\Http\Controllers\EventController');
-Route::get('/events/create', '\App\Http\Controllers\EventController@create')->name('events/create');
+// Route::get('/events/create', '\App\Http\Controllers\EventController@create')->name('events/create');
 
 Route::resource('/statistics', '\App\Http\Controllers\StatisticController');
 Route::get('/statistics/create', '\App\Http\Controllers\StatisticController@create')->name('statistics');
@@ -44,7 +44,7 @@ Route::get('/employees/create', '\App\Http\Controllers\EmployeeController@create
 Route::group(['middleware'=>'web'], function(){
 
     Route::resource('/schools', '\App\Http\Controllers\SchoolController');
-    Route::get('schools/create', '\App\Http\Controllers\SchoolController@create')->name('schools/create');
-    Route::get('schools/{id}/edit', '\App\Http\Controllers\SchoolController@edit')->name('schools/edit');
+    // Route::get('schools/create', '\App\Http\Controllers\SchoolController@create')->name('schools/create');
+    // Route::get('schools/{id}/edit', '\App\Http\Controllers\SchoolController@edit')->name('schools/edit');
 
 });

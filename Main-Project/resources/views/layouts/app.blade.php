@@ -49,8 +49,8 @@
                             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                                     <ul class="navbar-nav">
-                                        <li class="navbar-item"><a class="nav-link" href="{{route('events/create')}}">Event Booking</a></li> 
-                                        <li class="navbar-item"><a class="nav-link" href="schools">School Booking</a></li>
+                                        <li class="navbar-item"><a class="nav-link" href="{{route('events.create')}}">Event Booking</a></li> 
+                                        <li class="navbar-item"><a class="nav-link" href="{{route('schools.index')}}">School Booking</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="{{route('statistics')}}">Nature Reserve Visitor Statistics</a></li>
                                         <li class="navbar-item"><a class="nav-link" href="{{route('admins')}}">Admin</a></li>           
                                         <li class="navbar-item"><a class="nav-link" href="{{route('attendance')}}">Attendence Sheet</a></li>

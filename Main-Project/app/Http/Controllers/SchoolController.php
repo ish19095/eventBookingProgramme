@@ -9,11 +9,13 @@ use App\Http\Requests\CreateSchoolRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 use App\Models\Location as Location; 
 use App\Models\SchoolForm as SchoolForm;
 use App\Models\SchoolGrade as SchoolGrade;
 use App\Models\School as School;
 use App\Models\User as User;
+use App\Models\EventStatus as EventStatus; 
 
 class SchoolController extends Controller
 {
@@ -159,47 +161,51 @@ class SchoolController extends Controller
             return abort(404); 
         }
 
-        dd([$request->all()]);
+        try{
+            $date = new DateTime($request->school_event_date);
+            $timeFrom = new DateTime('09:00:00');
+            $timeTo = new DateTime('12:30:00');
 
-        // try{
-        //     // $date = new DateTime($request->school_event_date);
-        //     // $timeFrom = new DateTime('09:00:00');
-        //     // $timeTo = new DateTime('12:30:00');
+            $startDate = new DateTime($date->format('Y-m-d') .' ' .$timeFrom->format('H:i:s'));
+            $startDate->format('Y-m-d H:i:s'); 
+            $endDate = new DateTime($date->format('Y-m-d') .' ' .$timeTo->format('H:i:s'));
+            $endDate->format('Y-m-d H:i:s');
 
-        //     // $startDate = new DateTime($date->format('Y-m-d') .' ' .$timeFrom->format('H:i:s'));
-        //     // $startDate->format('Y-m-d H:i:s'); 
-        //     // $endDate = new DateTime($date->format('Y-m-d') .' ' .$timeTo->format('H:i:s'));
-        //     // $endDate->format('Y-m-d H:i:s');
+            // Get the location code and id to be used as parameters to generate the form's code
+            $locCode = DB::table('location')->where('loc_id', $request->loc_id)->value('loc_code');
+            $locId = $request->loc_id;
+            $code = $this->genCode($locCode, $locId);
 
-        //     // // Get the location code and id to be used as parameters to generate the form's code
-        //     // $locCode = DB::table('location')->where('loc_id', $request->loc_id)->value('loc_code');
-        //     // $locId = $request->loc_id;
-        //     // $code = $this->genCode($locCode, $locId);
+            $newbooking = new SchoolForm;     
+            $newbooking->schfrm_code = $code;           
+            $newbooking->schfrm_startDate = $startDate;
+            $newbooking->schfrm_endDate = $endDate;
 
-        //     // $newbooking = new SchoolForm;     
-        //     // $newbooking->schfrm_code = $code;           
-        //     // $newbooking->schfrm_startDate = $startDate;
-        //     // $newbooking->schfrm_endDate = $endDate;
+            $newbooking->loc_id = $request->loc_id;
+            $newbooking->schfrm_handler = $request->schfrm_handler;
+            $newbooking->sch_id = $request->sch_id;
+            $newbooking->schgrd_id = $request->schgrd_id;
 
-        //     // $newbooking->loc_id = $request->loc_id;
-        //     // $newbooking->schfrm_handler = $request->schfrm_handler;
-        //     // $newbooking->sch_id = $request->sch_id;
-        //     // $newbooking->schgrd_id = $request->schgrd_id;
+            $newbooking->schfrm_noOfStudent = $request->schfrm_noOfStudent;
+            $newbooking->schfrm_teacherName = $request->schfrm_teacherName;
+            $newbooking->schfrm_teacherNo = $request->schfrm_teacherNo;
+            $newbooking->schfrm_teacherEmail = $request->schfrm_teacherEmail;
+            $newbooking->schfrm_donation = $request->schfrm_donation;
+                if($request->schfrm_sales == 'on'){
+                    $newbooking->schfrm_sales = true;
+                }
+                else{
+                    $newbooking->schfrm_sales = false;
+                }
+            $newbooking->evtstat_id = DB::table('event_status')->where('evtstat_code', 'drft')->value('evtstat_id'); 
+            $newbooking->temp_date = $request->school_event_date;
 
-        //     // $newbooking->schfrm_noOfStudent = $request->schfrm_noOfStudent;
-        //     // $newbooking->schfrm_teacherName = $request->schfrm_teacherName;
-        //     // $newbooking->schfrm_teacherNo = $request->schfrm_teacherNo;
-        //     // $newbooking->schfrm_teacherEmail = $request->schfrm_teacherEmail;
-        //     // $newbooking->schfrm_donation = $request->schfrm_donation;
-        //     // $newbooking->schfrm_sales = $request->schfrm_sales;
-        //     // $newbooking->evtstat_id = DB::table('event_status')->where('evtstat_code', 'drft')->value('evtstat_id'); 
-        //     // $newbooking->temp_date = $request->school_event_date;
-
-        //     // $newbooking->save();
-        //     // return redirect('/schools');
-        // } catch(Exception $e){
-        //     return "";
-        // }
+            // dd([$request->all(), $newbooking]);
+            $newbooking->save();
+            return redirect('/schools');
+        } catch(Exception $e){
+            return "";
+        }
     }
 
     /**
@@ -210,9 +216,9 @@ class SchoolController extends Controller
      */
     public function show($id)
     {
-        $form = SchoolForm::findOrFail($id);
+        // $form = SchoolForm::findOrFail($id);
         
-        return view('schools.show', compact('form'));
+        // return view('schools.show', compact('form'));
     
     }
 
@@ -247,11 +253,16 @@ class SchoolController extends Controller
             ::where('temp_date', '>=', date('Y-m-d'))
             ->get();
 
+        $event_status = EventStatus
+            ::where('evtstat_isActive', true)
+            ->get();
+
         return view('schools.edit', compact('form'))
             ->with('future_events', $future_events)
             ->with('locations', $locations)
             ->with('users', $users)
             ->with('schools', $schools)
+            ->with('event_status', $event_status)
             ->with('school_grades', $school_grades);
     }
 
@@ -299,9 +310,11 @@ class SchoolController extends Controller
             return "Date in use"; 
         }
 
-        // dd([$request->all()]);
+        // dd([$request->all(), $schoolForm]);
 
         $schoolForm = SchoolForm::findOrFail($id);
+        if($request->has('confirm'))
+            $schoolForm->evtstat_id = DB::table('event_status')->where('evtstat_code', 'conf')->value('evtstat_id');
         $schoolForm->update($request->all());
         return redirect('/schools');
     }
@@ -312,8 +325,9 @@ class SchoolController extends Controller
      * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function destroy(School $school)
+    public function destroy($id)
     {
-        //
+        $form = SchoolForm::where('schfrm_id', $id)->delete();
+        return redirect('/schools');
     }
 }

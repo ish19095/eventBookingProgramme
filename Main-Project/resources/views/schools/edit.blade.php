@@ -17,7 +17,7 @@
 </div> <!-- end col-->
 <br>
 @endif   
-<form method="post" action="/schools/{{$form->schfrm_id}}">
+<form method="post" action="{{route('schools.update',$form->schfrm_id)}}">
     {{csrf_field()}}
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="schfrm_id" value="{{$form->schfrm_id}}">
@@ -107,35 +107,65 @@
                 <input data-toggle="touchspin" type="text" data-bts-prefix="€" id="schfrm_donation" name="schfrm_donation" value="{{$form->schfrm_donation}}" >
                 <br>
                 <!-- Sales -->
+
                 <label class="form-check-label">Sales:</label>
-                <input type="checkbox" id="schfrm_sales" name="schfrm_sales" class="form-check-input" value="{{$form->schfrm_sales}}" ></input>
+                @if($form->schfrm_sales == 1)
+                    <input type="checkbox" id="schfrm_sales" name="schfrm_sales" class="form-check-input" value="{{$form->schfrm_sales}}" checked></input>
+                @else
+                    <input type="checkbox" id="schfrm_sales" name="schfrm_sales" class="form-check-input" value="{{$form->schfrm_sales}}"></input>
+                @endif
             </div> <!-- end card-body-->
         </div> <!-- end card-->
     </div> <!-- end col-->
 
-    <br>
-    <button class="btn btn-primary" type="submit" name="submit">Save</button>
-</form> 
+    <div class="col-lg-6">
+        <div class="card widget-flat">
+            <div class="card-body">
+                <!-- Event Status -->
+                <label for="evtstat_id" class="form-label">Status:</label>
+                @if($form->evtstat_id == 2)
+                    <input type="text" id="evtstat_id" name="evtstat_id" class="form-control" style="background-color:#ebe42f; color:black;" value="{{$form->event_status->evtstat_description}}" disabled>
+                @elseif($form->evtstat_id == 1)
+                    <input type="text" id="evtstat_id" name="evtstat_id" class="form-control" style="background-color:#14e044; color:white;" value="{{$form->event_status->evtstat_description}}" disabled>    
+                @endif
+            </div> 
+        </div> 
+    </div> 
 
-<ul id="days" style="display: none">
-    @foreach($future_events as $future_event)
-        <li id="{{$future_event->schfrm_id}}">{{$future_event->temp_date->format('Y-m-d')}}</li>
-    @endforeach
-</ul>
+    <br>
+    <button class="btn btn-primary" type="submit" name="submit">Amend</button>
+    <button class="btn btn-primary" type="submit" name="confirm">Confirm</button>
+</form>
+<br>
+<form method="post" action="{{route('schools.destroy',$form->schfrm_id)}}">
+    {{csrf_field()}}
+    <input type="hidden" name="_method" value="DELETE">
+     <button class="btn btn-danger" type="submit" name="delete" >Delete</button> <!-- onclick="confirmDelete()" -->
+</form>
 @endsection
 
 @section('script')
 <script>
+    const events = JSON.parse(' {!! $future_events !!} ');
     var datesForDisable = [];
-    const temp = document.getElementById('days');
-    const items = temp.getElementsByTagName('li');
+    
 
-    for(let i = 0; i < items.length ; i++){
-        datesForDisable.push(items[i].innerHTML);
-    }
-
-    for(let i = 0; i < items.length ; i++){
-        console.log(datesForDisable[i]);
+    for(let i = 0; i < events.length ; i++){
+        const formatDate = (date) => {
+            let d = new Date(date);
+            let month = (d.getMonth() + 1).toString();
+            let day = d.getDate().toString();
+            let year = d.getFullYear();
+            if (month.length < 2) {
+                month = '0' + month;
+            }
+            if (day.length < 2) {
+                day = '0' + day;
+            }
+            return [year, month, day].join('-');
+        }
+        // console.log(formatDate(events[i].temp_date));
+        datesForDisable.push(formatDate(events[i].temp_date));
     }
 
     $('.datepicker').datepicker({
@@ -144,8 +174,19 @@
         todayHighlight: true,
         datesDisabled: datesForDisable
     });
- 
 </script>
+
+<!-- <script>
+    function confirmDelete() {
+        let confirmAction = confirm("Are you sure you want to delete this form?");
+        if (confirmAction) {
+            alert("Delete successfully executed");
+        } else {
+            alert("Delete canceled");
+            redirect('/schools');
+        }
+      }
+</script> -->
 
 <style>
     .datepicker{

@@ -17,7 +17,7 @@
 </div> <!-- end col-->
 <br>
 @endif   
-<form autocomplete="off" method="post" action="/schools">
+<form autocomplete="off" method="post" action="{{route('schools.store')}}">
     <div class="col-lg-6">
         <div class="card widget-flat">
             <div class="card-body">
@@ -100,31 +100,33 @@
             </div> <!-- end card-body-->
         </div> <!-- end card-->
     </div> <!-- end col-->
-    
     {{csrf_field()}}
     <br>
     <button class="btn btn-primary" type="submit" name="submit">Save</button>
 </form> 
-<ul id="days" style="display: none">
-    @foreach($future_events as $future_event)
-        <li id="{{$future_event->schfrm_id}}">{{$future_event->temp_date->format('Y-m-d')}}</li>
-    @endforeach
-</ul>
-
 @endsection
 
 @section('script')
 <script>
+    const events = JSON.parse(' {!! $future_events !!} ');
     var datesForDisable = [];
-    const temp = document.getElementById('days');
-    const items = temp.getElementsByTagName('li');
-
-    for(let i = 0; i < items.length ; i++){
-        datesForDisable.push(items[i].innerHTML);
-    }
-
-    for(let i = 0; i < items.length ; i++){
-        console.log(datesForDisable[i]);
+    
+    for(let i = 0; i < events.length ; i++){
+        const formatDate = (date) => {
+            let d = new Date(date);
+            let month = (d.getMonth() + 1).toString();
+            let day = d.getDate().toString();
+            let year = d.getFullYear();
+            if (month.length < 2) {
+                month = '0' + month;
+            }
+            if (day.length < 2) {
+                day = '0' + day;
+            }
+            return [year, month, day].join('-');
+        }
+        // console.log(formatDate(events[i].temp_date));
+        datesForDisable.push(formatDate(events[i].temp_date));
     }
 
     $('.datepicker').datepicker({
@@ -133,7 +135,6 @@
         todayHighlight: true,
         datesDisabled: datesForDisable
     });
- 
 </script>
 
 <style>
