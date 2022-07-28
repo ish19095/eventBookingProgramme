@@ -349,13 +349,19 @@
                     <div class="card widget-flat">
                         <div class="card-body"> 
                             <!-- Other persons    -->           
-                            <label for="internal_event_other_member" class="form-label">Other persons    for the running of the event:</label>
+                            <label for="internal_event_other_member" class="form-label">Other persons for the running of the event:</label>
+                            <div class="fc-scroller fc-scroller-liquid-absolute" style="overflow: hidden scroll;">
                             <ul style="list-style-type:none">
                                 <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
                                 <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
                                 <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
                                 <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
+                                <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
+                                <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
+                                <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
+                                <li class="form-check-label"><input type="checkbox" class="form-check-input">  Employee</li>
                             </ul>
+                            </div>
                             <br>
                         </div>
                     </div>

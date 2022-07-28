@@ -117,10 +117,10 @@
                                             <div class="dropdown-menu" aria-labelledby="topnav-dashboards">
                                                 {{-- <a href="{{route('events.index')}}#internal" class="dropdown-item">Internal</a>
                                                 <a href="{{route('events.index')}}#external" class="dropdown-item">External</a> --}}
-                                                {{-- <a href="index.html" class="dropdown-item">Ecommerce</a>
-                                                <a href="dashboard-projects.html" class="dropdown-item">Projects</a> --}}
+                                                
 
-                                                <a  class="dropdown-item">Create</a>
+                                                <a  class="dropdown-item" href="{{ route('events.create') }}"  >Create</a>
+                                                {{-- <a  class="dropdown-item">Create</a> --}}
                                                 <a class="dropdown-item">Edit</a>
 
                                             </div>
@@ -163,16 +163,16 @@
                                                 {{-- <a href="employees" class="dropdown-item">Edit Employee</a> --}}   
                                                 
                                                 <div class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ route('employees.create') }}" id="topnav-ui-kit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="dropdown-item dropdown-toggle arrow-none" href="admins" id="topnav-ui-kit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Edit Employee <div class="arrow-down"></div>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="topnav-ui-kit">
-                                                        <a href="ui-accordions.html" class="dropdown-item">Add</a>
-                                                        <a href="ui-alerts.html" class="dropdown-item">Remove</a>                                                        
+                                                        <a href="{{ route('employees.index')}}#add_employee" class="dropdown-item">Add</a>
+                                                        <a href="{{ route('employees.index')}}#remove_employee" class="dropdown-item">Remove</a>
                                                     </div>
                                                 </div>
                                                 <div class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle arrow-none" href="locations" id="topnav-ui-kit2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ route('locations.create') }}" id="topnav-ui-kit2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Edit Location <div class="arrow-down"></div>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="topnav-ui-kit2">

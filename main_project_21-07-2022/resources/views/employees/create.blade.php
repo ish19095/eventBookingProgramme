@@ -16,8 +16,11 @@
     </div> <!-- end card-->
 </div> <!-- end col-->
 <br>
-@endif      
-<ul class="nav nav-tabs nav-bordered mb-3">
+@endif     
+
+{{-- target="employee_action_selection_content" --}}
+
+<ul id="employee_action_selection_tabs" class="nav nav-tabs nav-bordered mb-3">
     <li class="nav-item">
         <a href="#add_employee" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
             <i class="mdi d-md-none d-block">Add Employee</i>
@@ -32,9 +35,9 @@
     </li>
 </ul>
 
-<div class="tab-content p-3 mb-2 bg-secondary-lighten">
+<div id="employee_action_selection_content" class="tab-content p-3 mb-2 bg-secondary-lighten">
     <div class="tab-pane show active" id="add_employee">
-        <form id="add_employee" method="post" action="/employees">
+        <form id="add_employee_form" method="post" action="/employees">
             <div class="row">
             <div class="col-lg-6">
                 <div class="card widget-flat">
@@ -67,14 +70,12 @@
             {{csrf_field()}}
             <br>
             <button class="btn btn-primary" type="submit" id="add" name="add">Add</button>
-        </form>
-        
-         
-
+        </form>         
     </div>
+    
 
     <div class="tab-pane" id="remove_employee">
-        <form id="remove_employee" method="post" action="/employees">
+        <form id="remove_employee_form" method="post" action="/employees">
             <div class="col-lg-6">
                 <div class="card widget-flat">
                     <div class="card-body">
@@ -101,5 +102,49 @@
         <button class="btn btn-primary" name="submit" type="submit" value="cancel" onclick="Cancel()">Cancel Event</button>
     </div>
 </div> -->
+
+@endsection
+
+@section('script')
+
+<script>
+
+    // $("#tabs").tabs("select", "#sample-tab-1");
+
+    // $("#employee_action_selection").tabs("select", "#add_employee");
+
+
+    // $("#employee_action_selection").tabs("select", "#remove_employee");
+
+    // $( "#employee_action_selection" ).tabs();
+
+
+    $(function() {  
+            
+            
+            // $("employee_action_selection a").click(function(e){
+                
+            //     $("employee_action_selection li").removeClass("tab-pane show active");
+            //     $(this).parent("li").addClass("tab-pane show active");
+
+            //     var page = this.hash.substr(1);
+            //     $("#content_wrapper").block();
+            //     $.get(page+".php", function(html){
+            //         $("#content").html(html);
+            //         $("#content_wrapper").unblock();
+            //     });
+            // });
+
+            
+
+            $("#employee_action_selection").tabs();
+
+            console.log( $("a[href="+location.hash"]"));
+
+
+            // $("a[href="+location.hash"]").click();
+    }); 
+
+</script>
 
 @endsection
